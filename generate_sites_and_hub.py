@@ -762,9 +762,10 @@ for idx, item in enumerate(contractors, 1):
     
     # Pre-drafted WhatsApp pitch in Australian English
     clean_p = format_clean_phone(phone)
-    pitch_text = f"G'day {name} team,\n\nSaw your incredible {rating}★ rating ({reviews} Google reviews) in {city} — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!"
+    demo_url = f"https://zonus.co/fencing/sites/{slug}/"
+    pitch_template = f"G'day {name} team,\n\nSaw your incredible {rating}★ rating ({reviews} Google reviews) in {city} — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 {demo_url}\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!"
     
-    wa_msg_encoded = urllib.parse.quote(pitch_text.replace('[DEMO LINK]', f'https://demo-{slug}.vercel.app'))
+    wa_msg_encoded = urllib.parse.quote(pitch_template)
     full_wa_url = f"{wa_url}?text={wa_msg_encoded}" if wa_url.startswith('https://wa.me') else '#'
     
     contractor_cards.append({
@@ -782,7 +783,7 @@ for idx, item in enumerate(contractors, 1):
         'gmaps_url': gmaps_url,
         'wa_url': wa_url,
         'full_wa_url': full_wa_url,
-        'pitch_text': pitch_text,
+        'pitch_text': pitch_template,
         'site_rel_path': f'sites/{slug}/index.html'
     })
     print(f"[{idx}/20] Created site for {name} -> sites/{slug}/index.html")
@@ -936,8 +937,8 @@ for c in contractor_cards:
     status_class = 'status-no-site' if 'нет' in c['web_status'] else ('status-fb' if 'Facebook' in c['web_status'] else 'status-aggr')
     wa_btn_html = f'<a href="{c["full_wa_url"]}" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>' if c['wa_url'].startswith('https') else '<span class="btn-action" style="background:#334155; color:#94a3b8; cursor:not-allowed;">Landline</span>'
     
-    # Escape quotes for JS copy
-    escaped_pitch = c['pitch_text'].replace('"', '\\"').replace('\n', '\\n')
+    import html
+    encoded_pitch_attr = html.escape(c['pitch_text'], quote=True)
     
     hub_html += f'''
       <article class="biz-card" data-state="{c['state']}" data-name="{c['name'].lower()} {c['city'].lower()}">
@@ -966,7 +967,7 @@ for c in contractor_cards:
         <div class="card-actions">
           <a href="{c['site_rel_path']}" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
           {wa_btn_html}
-          <button type="button" class="btn-action btn-copy" onclick="copyPitch('{escaped_pitch}')">📋 Copy Pitch</button>
+          <button type="button" class="btn-action btn-copy" data-pitch="{encoded_pitch_attr}" onclick="copyPitch(this.getAttribute(\'data-pitch\'))">📋 Copy Pitch</button>
           <a href="{c['gmaps_url']}" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
         </div>
       </article>
