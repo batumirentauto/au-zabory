@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Australian Fencing Contractors • Sales & Outreach Hub (20 Companies)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d1512;
+      --card-bg: #14201c;
+      --card-border: #1f302a;
+      --primary: #10b981;
+      --accent: #f28c28;
+      --text: #f1f5f3;
+      --text-muted: #8da498;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.5; padding: 40px 20px 80px; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1300px; margin: 0 auto; }
+    
+    /* Header */
+    .hub-header { text-align: center; margin-bottom: 40px; }
+    .hub-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); color: var(--primary); padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+    .hub-title { font-family: 'Space Grotesk', sans-serif; font-size: 2.6rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .hub-title span { color: var(--accent); }
+    .hub-desc { font-size: 1.1rem; color: var(--text-muted); max-width: 760px; margin: 0 auto; }
+
+    /* KPI Bar */
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 36px; }
+    .kpi-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; text-align: center; }
+    .kpi-val { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .kpi-val span { color: var(--primary); }
+    .kpi-label { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+
+    /* Filter Controls */
+    .controls { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 20px; margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; }
+    .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn { background: transparent; border: 1px solid var(--card-border); color: var(--text-muted); padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+    .filter-btn.active, .filter-btn:hover { background: var(--primary); color: #0d1512; border-color: var(--primary); }
+    .search-box { position: relative; min-width: 280px; }
+    .search-input { width: 100%; background: #0d1512; border: 1px solid var(--card-border); border-radius: 8px; padding: 10px 14px; color: #fff; font-size: 0.9rem; outline: none; }
+    .search-input:focus { border-color: var(--primary); }
+
+    /* Cards Grid */
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 24px; }
+    .biz-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, border-color 0.2s; }
+    .biz-card:hover { transform: translateY(-3px); border-color: rgba(16, 185, 129, 0.4); }
+    
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; gap: 12px; }
+    .biz-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: #fff; }
+    .state-badge { background: rgba(242, 140, 40, 0.15); border: 1px solid rgba(242, 140, 40, 0.3); color: var(--accent); padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; flex-shrink: 0; }
+    
+    .status-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; font-weight: 700; margin-bottom: 14px; }
+    .status-no-site { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .status-fb { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .status-aggr { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+    .stats-row { display: flex; gap: 14px; background: rgba(0, 0, 0, 0.25); padding: 10px 14px; border-radius: 8px; margin-bottom: 16px; font-size: 0.85rem; }
+    .stars { color: #f59e0b; font-weight: 800; }
+    .review-recency { color: #9fe2bf; font-weight: 600; margin-left: auto; }
+
+    .info-list { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
+    .info-list p { margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+
+    /* Actions */
+    .card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: auto; }
+    .btn-action { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.85rem; font-weight: 700; padding: 10px 14px; border-radius: 8px; border: none; cursor: pointer; transition: all 0.2s; min-height: 42px; text-align: center; }
+    .btn-view { background: var(--primary); color: #0d1512; }
+    .btn-view:hover { background: #059669; }
+    .btn-wa { background: #25D366; color: #fff; }
+    .btn-wa:hover { background: #1ebc59; }
+    .btn-copy { background: rgba(255, 255, 255, 0.08); color: #fff; border: 1px solid var(--card-border); }
+    .btn-copy:hover { background: rgba(255, 255, 255, 0.15); }
+    .btn-map { background: rgba(255, 255, 255, 0.08); color: #fff; border: 1px solid var(--card-border); }
+    .btn-map:hover { background: rgba(255, 255, 255, 0.15); }
+
+    .toast { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: #0d1512; font-weight: 800; padding: 12px 24px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); transform: translateY(100px); opacity: 0; transition: all 0.3s; z-index: 1000; }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    @media (max-width: 900px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Header -->
+    <header class="hub-header">
+      <div class="hub-badge">Australia Outreach Machine</div>
+      <h1 class="hub-title">Colorbond & Modular Fencing <span>Client Hub</span></h1>
+      <p class="hub-desc">
+        All 20 verified Australian contractors with ready-to-sell demo landing pages, direct WhatsApp links, and tailored pitch templates.
+      </p>
+    </header>
+
+    <!-- KPI Summary -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-val">20</div>
+        <div class="kpi-label">Ready Websites Generated</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">19 <span>(95%)</span></div>
+        <div class="kpi-label">Direct WhatsApp Mobiles</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">4.8 – 5.0★</div>
+        <div class="kpi-label">Top Google Rating</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">&lt; 4 mo</div>
+        <div class="kpi-label">Active Review Recency</div>
+      </div>
+    </section>
+
+    <!-- Filter & Search Controls -->
+    <div class="controls">
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All States (20)</button>
+        <button class="filter-btn" data-filter="NSW">NSW (7)</button>
+        <button class="filter-btn" data-filter="QLD">QLD (4)</button>
+        <button class="filter-btn" data-filter="WA">WA (4)</button>
+        <button class="filter-btn" data-filter="VIC">VIC (2)</button>
+        <button class="filter-btn" data-filter="SA">SA (2)</button>
+        <button class="filter-btn" data-filter="ACT">ACT (1)</button>
+      </div>
+
+      <div class="search-box">
+        <input type="text" id="searchBox" class="search-input" placeholder="Search by company or suburb...">
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <main class="cards-grid" id="cardsGrid">
+
+      <article class="biz-card" data-state="NSW" data-name="underwood fencing and gates sydney nsw">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">1. Underwood Fencing and Gates</h2>
+            <span class="state-badge">NSW</span>
+          </div>
+
+          <div class="status-badge status-no-site">
+            Сайта нет
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 5.0</span>
+            <span>(80 reviews)</span>
+            <span class="review-recency">🕒 3 weeks ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Sydney NSW</p>
+            <p>📞 <strong>+61 418 446 509</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/underwood-fencing-and-gates/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61418446509?text=G%27day%20Underwood%20Fencing%20and%20Gates%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2880%20Google%20reviews%29%20in%20Sydney%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-underwood-fencing-and-gates.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day Underwood Fencing and Gates team,\n\nSaw your incredible 5.0★ rating (80 Google reviews) in Sydney NSW — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJT2e1-NuvEmsRQL3qu8pxTiw" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="NSW" data-name="affordable fencing company sydney nsw">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">2. Affordable Fencing Company</h2>
+            <span class="state-badge">NSW</span>
+          </div>
+
+          <div class="status-badge status-no-site">
+            Сайта нет
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 4.9</span>
+            <span>(142 reviews)</span>
+            <span class="review-recency">🕒 3 weeks ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Sydney NSW</p>
+            <p>📞 <strong>+61 417 226 520</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/affordable-fencing-company/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61417226520?text=G%27day%20Affordable%20Fencing%20Company%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%28142%20Google%20reviews%29%20in%20Sydney%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-affordable-fencing-company.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day Affordable Fencing Company team,\n\nSaw your incredible 4.9★ rating (142 Google reviews) in Sydney NSW — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJ2YBODTGxEmsRqnFEblNdzK0" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="NSW" data-name="anthony's fencing sydney nsw">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">3. Anthony's Fencing</h2>
+            <span class="state-badge">NSW</span>
+          </div>
+
+          <div class="status-badge status-no-site">
+            Сайта нет
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 4.9</span>
+            <span>(41 reviews)</span>
+            <span class="review-recency">🕒 a month ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Sydney NSW</p>
+            <p>📞 <strong>+61 435 256 220</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/anthonys-fencing/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61435256220?text=G%27day%20Anthony%27s%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%2841%20Google%20reviews%29%20in%20Sydney%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-anthonys-fencing.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day Anthony's Fencing team,\n\nSaw your incredible 4.9★ rating (41 Google reviews) in Sydney NSW — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJW-m0aMq7EmsRhgOFBKeWv_w" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="NSW" data-name="highline fencing parramatta nsw">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">4. Highline Fencing</h2>
+            <span class="state-badge">NSW</span>
+          </div>
+
+          <div class="status-badge status-aggr">
+            Агрегатор (hipages.com.au)
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 5.0</span>
+            <span>(39 reviews)</span>
+            <span class="review-recency">🕒 3 weeks ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Parramatta NSW</p>
+            <p>📞 <strong>+61 403 144 520</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/highline-fencing/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61403144520?text=G%27day%20Highline%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2839%20Google%20reviews%29%20in%20Parramatta%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-highline-fencing.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day Highline Fencing team,\n\nSaw your incredible 5.0★ rating (39 Google reviews) in Parramatta NSW — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJ7fh_cd7Gom8RwThbyX12lIg" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="NSW" data-name="diy dale campbelltown nsw">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">5. DIY Dale</h2>
+            <span class="state-badge">NSW</span>
+          </div>
+
+          <div class="status-badge status-no-site">
+            Сайта нет
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 4.8</span>
+            <span>(75 reviews)</span>
+            <span class="review-recency">🕒 3 weeks ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Campbelltown NSW</p>
+            <p>📞 <strong>+61 488 998 399</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/diy-dale/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61488998399?text=G%27day%20DIY%20Dale%20team%2C%0A%0ASaw%20your%20incredible%204.8%E2%98%85%20rating%20%2875%20Google%20reviews%29%20in%20Campbelltown%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-diy-dale.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day DIY Dale team,\n\nSaw your incredible 4.8★ rating (75 Google reviews) in Campbelltown NSW — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJqa7YXr_vEmsRTdQN-Jdh4yg" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="NSW" data-name="straight arrow projects campbelltown nsw">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">6. STRAIGHT ARROW PROJECTS</h2>
+            <span class="state-badge">NSW</span>
+          </div>
+
+          <div class="status-badge status-no-site">
+            Сайта нет
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 5.0</span>
+            <span>(36 reviews)</span>
+            <span class="review-recency">🕒 2 months ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Campbelltown NSW</p>
+            <p>📞 <strong>+61 490 471 559</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/straight-arrow-projects/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61490471559?text=G%27day%20STRAIGHT%20ARROW%20PROJECTS%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2836%20Google%20reviews%29%20in%20Campbelltown%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-straight-arrow-projects.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day STRAIGHT ARROW PROJECTS team,\n\nSaw your incredible 5.0★ rating (36 Google reviews) in Campbelltown NSW — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJjxyWmEs1ew0R5IKzflc-YWg" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="NSW" data-name="mighty fencing wollongong nsw">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">7. Mighty Fencing</h2>
+            <span class="state-badge">NSW</span>
+          </div>
+
+          <div class="status-badge status-no-site">
+            Сайта нет
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 5.0</span>
+            <span>(57 reviews)</span>
+            <span class="review-recency">🕒 3 months ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Wollongong NSW</p>
+            <p>📞 <strong>+61 401 044 638</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/mighty-fencing/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61401044638?text=G%27day%20Mighty%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2857%20Google%20reviews%29%20in%20Wollongong%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-mighty-fencing.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day Mighty Fencing team,\n\nSaw your incredible 5.0★ rating (57 Google reviews) in Wollongong NSW — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJQ0kzI2ENE2sRqfDX6Z3xBwI" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="VIC" data-name="tj fencing melbourne vic">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">8. TJ Fencing</h2>
+            <span class="state-badge">VIC</span>
+          </div>
+
+          <div class="status-badge status-fb">
+            Facebook / Instagram (https://www.facebook.com/share/19NnZsXBY9/?mibextid=LQQJ4d)
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 4.9</span>
+            <span>(149 reviews)</span>
+            <span class="review-recency">🕒 3 months ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Melbourne VIC</p>
+            <p>📞 <strong>+61 407 351 849</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/tj-fencing/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61407351849?text=G%27day%20TJ%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%28149%20Google%20reviews%29%20in%20Melbourne%20VIC%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-tj-fencing.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day TJ Fencing team,\n\nSaw your incredible 4.9★ rating (149 Google reviews) in Melbourne VIC — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJM0HaPMv11moR2tWhYWtVaLc" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="VIC" data-name="armstrong fencing and landscaping geelong vic">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">9. Armstrong Fencing and Landscaping</h2>
+            <span class="state-badge">VIC</span>
+          </div>
+
+          <div class="status-badge status-fb">
+            Facebook / Instagram (https://www.facebook.com/share/DbMmEvfPomaDfHzE/?mibextid=LQQJ4d)
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 5.0</span>
+            <span>(53 reviews)</span>
+            <span class="review-recency">🕒 4 months ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Geelong VIC</p>
+            <p>📞 <strong>+61 422 700 055</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/armstrong-fencing-and-landscaping/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61422700055?text=G%27day%20Armstrong%20Fencing%20and%20Landscaping%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2853%20Google%20reviews%29%20in%20Geelong%20VIC%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-armstrong-fencing-and-landscaping.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day Armstrong Fencing and Landscaping team,\n\nSaw your incredible 5.0★ rating (53 Google reviews) in Geelong VIC — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJs5Y81AvSBo0RZf7eBhMTa78" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="QLD" data-name="jp fencing & more pty ltd brisbane qld">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">10. JP Fencing & More Pty Ltd</h2>
+            <span class="state-badge">QLD</span>
+          </div>
+
+          <div class="status-badge status-no-site">
+            Сайта нет
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 4.9</span>
+            <span>(74 reviews)</span>
+            <span class="review-recency">🕒 4 months ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Brisbane QLD</p>
+            <p>📞 <strong>+61 415 585 594</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/jp-fencing-more-pty-ltd/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61415585594?text=G%27day%20JP%20Fencing%20%26%20More%20Pty%20Ltd%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%2874%20Google%20reviews%29%20in%20Brisbane%20QLD%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-jp-fencing-more-pty-ltd.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day JP Fencing & More Pty Ltd team,\n\nSaw your incredible 4.9★ rating (74 Google reviews) in Brisbane QLD — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJ0xcHaM21lmsRMOUGSlttNOo" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="QLD" data-name="jd fence masters brisbane qld">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">11. JD Fence Masters</h2>
+            <span class="state-badge">QLD</span>
+          </div>
+
+          <div class="status-badge status-no-site">
+            Сайта нет
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 5.0</span>
+            <span>(156 reviews)</span>
+            <span class="review-recency">🕒 4 weeks ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Brisbane QLD</p>
+            <p>📞 <strong>+61 469 077 580</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/jd-fence-masters/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61469077580?text=G%27day%20JD%20Fence%20Masters%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%28156%20Google%20reviews%29%20in%20Brisbane%20QLD%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-jd-fence-masters.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day JD Fence Masters team,\n\nSaw your incredible 5.0★ rating (156 Google reviews) in Brisbane QLD — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJVxdDmFNHkWsRelp4xOCrhdQ" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="QLD" data-name="bayside fencing & gates brisbane qld">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">12. Bayside Fencing & Gates</h2>
+            <span class="state-badge">QLD</span>
+          </div>
+
+          <div class="status-badge status-no-site">
+            Сайта нет
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 4.8</span>
+            <span>(23 reviews)</span>
+            <span class="review-recency">🕒 3 months ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Brisbane QLD</p>
+            <p>📞 <strong>+61 401 279 273</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/bayside-fencing-gates/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61401279273?text=G%27day%20Bayside%20Fencing%20%26%20Gates%20team%2C%0A%0ASaw%20your%20incredible%204.8%E2%98%85%20rating%20%2823%20Google%20reviews%29%20in%20Brisbane%20QLD%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-bayside-fencing-gates.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day Bayside Fencing & Gates team,\n\nSaw your incredible 4.8★ rating (23 Google reviews) in Brisbane QLD — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJRw_0Ff_vk2sRz5MJucoivfA" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="QLD" data-name="hernsley fencing services brisbane qld">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">13. Hernsley Fencing Services</h2>
+            <span class="state-badge">QLD</span>
+          </div>
+
+          <div class="status-badge status-no-site">
+            Сайта нет
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 4.9</span>
+            <span>(80 reviews)</span>
+            <span class="review-recency">🕒 a month ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Brisbane QLD</p>
+            <p>📞 <strong>+61 404 873 373</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/hernsley-fencing-services/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61404873373?text=G%27day%20Hernsley%20Fencing%20Services%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%2880%20Google%20reviews%29%20in%20Brisbane%20QLD%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-hernsley-fencing-services.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day Hernsley Fencing Services team,\n\nSaw your incredible 4.9★ rating (80 Google reviews) in Brisbane QLD — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJVVWBoaRXkWsRAiITDeY7xdY" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="WA" data-name="sentry fencing joondalup wa">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">14. Sentry Fencing</h2>
+            <span class="state-badge">WA</span>
+          </div>
+
+          <div class="status-badge status-no-site">
+            Сайта нет
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 5.0</span>
+            <span>(38 reviews)</span>
+            <span class="review-recency">🕒 4 weeks ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Joondalup WA</p>
+            <p>📞 <strong>+61 433 791 961</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/sentry-fencing/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61433791961?text=G%27day%20Sentry%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2838%20Google%20reviews%29%20in%20Joondalup%20WA%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-sentry-fencing.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day Sentry Fencing team,\n\nSaw your incredible 5.0★ rating (38 Google reviews) in Joondalup WA — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJO-kN4wIK1IoRA_txucDmDkI" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="WA" data-name="blc fencing joondalup wa">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">15. BLC FENCING</h2>
+            <span class="state-badge">WA</span>
+          </div>
+
+          <div class="status-badge status-no-site">
+            Сайта нет
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 4.8</span>
+            <span>(44 reviews)</span>
+            <span class="review-recency">🕒 3 months ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Joondalup WA</p>
+            <p>📞 <strong>+61 432 185 118</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/blc-fencing/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61432185118?text=G%27day%20BLC%20FENCING%20team%2C%0A%0ASaw%20your%20incredible%204.8%E2%98%85%20rating%20%2844%20Google%20reviews%29%20in%20Joondalup%20WA%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-blc-fencing.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day BLC FENCING team,\n\nSaw your incredible 4.8★ rating (44 Google reviews) in Joondalup WA — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJvy-4A-lTzSsRnZ_7AQ160H0" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="WA" data-name="fenced right wa mandurah wa">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">16. Fenced Right WA</h2>
+            <span class="state-badge">WA</span>
+          </div>
+
+          <div class="status-badge status-no-site">
+            Сайта нет
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 5.0</span>
+            <span>(29 reviews)</span>
+            <span class="review-recency">🕒 6 days ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Mandurah WA</p>
+            <p>📞 <strong>+61 430 022 620</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/fenced-right-wa/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61430022620?text=G%27day%20Fenced%20Right%20WA%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2829%20Google%20reviews%29%20in%20Mandurah%20WA%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-fenced-right-wa.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day Fenced Right WA team,\n\nSaw your incredible 5.0★ rating (29 Google reviews) in Mandurah WA — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJw-zDeM4xg4wR9jXJCZgCcpc" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="WA" data-name="fencing rockingham mandurah wa">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">17. Fencing Rockingham</h2>
+            <span class="state-badge">WA</span>
+          </div>
+
+          <div class="status-badge status-aggr">
+            Агрегатор (wixsite.com)
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 4.9</span>
+            <span>(83 reviews)</span>
+            <span class="review-recency">🕒 a month ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Mandurah WA</p>
+            <p>📞 <strong>+61 8 6216 2112</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/fencing-rockingham/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <span class="btn-action" style="background:#334155; color:#94a3b8; cursor:not-allowed;">Landline</span>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day Fencing Rockingham team,\n\nSaw your incredible 4.9★ rating (83 Google reviews) in Mandurah WA — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJTY0xTccrcoURA1dRUb4RR-g" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="SA" data-name="hanson fencing & gate adelaide sa">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">18. Hanson Fencing & Gate</h2>
+            <span class="state-badge">SA</span>
+          </div>
+
+          <div class="status-badge status-no-site">
+            Сайта нет
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 4.9</span>
+            <span>(94 reviews)</span>
+            <span class="review-recency">🕒 a month ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Adelaide SA</p>
+            <p>📞 <strong>+61 411 338 232</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/hanson-fencing-gate/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61411338232?text=G%27day%20Hanson%20Fencing%20%26%20Gate%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%2894%20Google%20reviews%29%20in%20Adelaide%20SA%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-hanson-fencing-gate.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day Hanson Fencing & Gate team,\n\nSaw your incredible 4.9★ rating (94 Google reviews) in Adelaide SA — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJoaNbAzDHsGoREdW7llw_Qw4" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="SA" data-name="valente fencing adelaide sa">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">19. Valente Fencing</h2>
+            <span class="state-badge">SA</span>
+          </div>
+
+          <div class="status-badge status-no-site">
+            Сайта нет
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 5.0</span>
+            <span>(42 reviews)</span>
+            <span class="review-recency">🕒 2 months ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Adelaide SA</p>
+            <p>📞 <strong>+61 422 309 557</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/valente-fencing/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61422309557?text=G%27day%20Valente%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2842%20Google%20reviews%29%20in%20Adelaide%20SA%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-valente-fencing.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day Valente Fencing team,\n\nSaw your incredible 5.0★ rating (42 Google reviews) in Adelaide SA — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJM6TG0JrFsGoRxmg35P33a30" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+      <article class="biz-card" data-state="ACT" data-name="guardian fencing canberra act">
+        <div>
+          <div class="card-top">
+            <h2 class="biz-name">20. Guardian fencing</h2>
+            <span class="state-badge">ACT</span>
+          </div>
+
+          <div class="status-badge status-fb">
+            Facebook / Instagram (https://www.facebook.com/profile.php/?id=61571046043885)
+          </div>
+
+          <div class="stats-row">
+            <span class="stars">★ 5.0</span>
+            <span>(27 reviews)</span>
+            <span class="review-recency">🕒 a month ago</span>
+          </div>
+
+          <div class="info-list">
+            <p>📍 Canberra ACT</p>
+            <p>📞 <strong>+61 405 840 576</strong></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="sites/guardian-fencing/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="https://wa.me/61405840576?text=G%27day%20Guardian%20fencing%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2827%20Google%20reviews%29%20in%20Canberra%20ACT%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//demo-guardian-fencing.vercel.app%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
+          <button type="button" class="btn-action btn-copy" onclick="copyPitch('G'day Guardian fencing team,\n\nSaw your incredible 5.0★ rating (27 Google reviews) in Canberra ACT — top quality reputation!\n\nNoticed you don't have a standalone modern website listed, so you're likely losing direct Colorbond & modular fencing jobs to competitors running Google ads.\n\nWe built a fast, mobile-ready website concept for your brand with your real reviews and services:\n👉 [DEMO LINK]\n\nZero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.\n\nWorth a quick 60-second look?\n\nCheers!')">📋 Copy Pitch</button>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJ6ztTKNU2wG8ReFuc7RK9rPw" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
+        </div>
+      </article>
+
+    </main>
+
+  </div>
+
+  <div id="toast" class="toast">Pitch message copied to clipboard!</div>
+
+  <script>
+    // Copy Pitch Text to Clipboard
+    function copyPitch(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      });
+    }
+
+    // Filter by State
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.biz-card');
+    const searchInput = document.getElementById('searchBox');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyFilters();
+      });
+    });
+
+    searchInput.addEventListener('input', applyFilters);
+
+    function applyFilters() {
+      const activeState = document.querySelector('.filter-btn.active').dataset.filter;
+      const searchVal = searchInput.value.toLowerCase().trim();
+
+      cards.forEach(card => {
+        const matchState = (activeState === 'all' || card.dataset.state === activeState);
+        const matchSearch = (!searchVal || card.dataset.name.includes(searchVal));
+
+        if (matchState && matchSearch) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
