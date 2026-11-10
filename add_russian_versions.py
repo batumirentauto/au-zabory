@@ -51,7 +51,6 @@ def generate_landing_html(item, slug, lang='en'):
         nav_colours = "Colorbond® Colours"
         nav_reviews = f"{reviews}+ Reviews"
         nav_areas = "Areas Serviced"
-        lang_toggle = '<a href="ru.html" class="lang-btn" title="Переключить на русский">🇷🇺 Русский</a>'
         btn_free_quote = "Free Measure & Quote"
         rating_badge_txt = f"{rating} / 5.0 ({reviews} Verified Google Reviews ↗)"
         hero_title = f"{city}’s Trusted <span>Colorbond, Modular & Gate</span> Specialists."
@@ -112,6 +111,12 @@ def generate_landing_html(item, slug, lang='en'):
         col_title = f"Popular Colorbond® Colours in {city}"
         col_sub = "Click to preview Australia's most requested architectural fencing colours for 2026."
         col_btn = "Order Sample with Measure"
+        desc_monument = "Australia's #1 choice: a deep, confident charcoal that creates stunning contrast against natural gardens and modern render."
+        desc_woodland = "Natural, organic dark olive-grey that blends seamlessly with Australian eucalypts and native vegetation."
+        desc_surfmist = "Fresh, clean, coastal off-white. Makes narrow suburban blocks look significantly brighter and more spacious."
+        desc_basalt = "Contemporary mineral grey with cool undertones, perfectly suited to timber, stone, and brick facades."
+        desc_dune = "Warm, neutral earth tone inspired by coastal sand dunes. Complements classic Australian brickwork."
+        desc_nightsky = "Sophisticated, dramatic deep black. Makes plants, pool areas, and architectural features stand out."
 
         # Reviews
         rev_eyebrow = "Social Proof"
@@ -179,7 +184,6 @@ def generate_landing_html(item, slug, lang='en'):
         nav_colours = "Цвета Colorbond®"
         nav_reviews = f"Отзывы ({reviews}+)"
         nav_areas = "Районы"
-        lang_toggle = '<a href="index.html" class="lang-btn" title="Switch to English">🇬🇧 English</a>'
         btn_free_quote = "Бесплатный замер и смета"
         rating_badge_txt = f"{rating} / 5.0 ({reviews} проверенных отзывов в Google ↗)"
         hero_title = f"Надежные заборы <span>Colorbond, модульные стены и ворота</span> в {city}."
@@ -240,6 +244,12 @@ def generate_landing_html(item, slug, lang='en'):
         col_title = f"Популярные цвета Colorbond® в {city}"
         col_sub = "Нажмите на цвет, чтобы посмотреть самые востребованные оттенки 2026 года."
         col_btn = "Заказать образцы цвета вместе с замером"
+        desc_monument = "Monument®: глубокий графитовый угольный оттенок #1 в Австралии. Идеальный контраст с современной штукатуркой и садом."
+        desc_woodland = "Woodland Grey®: натуральный темно-оливковый серый оттенок, гармонирующий с австралийской растительностью."
+        desc_surfmist = "Surfmist®: свежий прибрежный кремово-белый цвет. Визуально расширяет пространство участка."
+        desc_basalt = "Basalt®: современный минеральный серый с холодным подтоном под камень, дерево и кирпич."
+        desc_dune = "Dune®: теплый нейтральный песчаный оттенок. Отлично сочетается с классической кирпичной кладкой."
+        desc_nightsky = "Night Sky®: глубокий эффектный черный цвет. Подчеркивает зелень растений и зону бассейна."
 
         # Reviews
         rev_eyebrow = "Подтвержденная репутация"
@@ -349,8 +359,6 @@ def generate_landing_html(item, slug, lang='en'):
     .header-nav {{ display: flex; align-items: center; gap: 20px; }}
     .nav-link {{ font-weight: 600; font-size: 0.95rem; color: var(--text); transition: color 0.2s; }}
     .nav-link:hover {{ color: var(--accent); }}
-    .lang-btn {{ display: inline-flex; align-items: center; gap: 5px; background: rgba(25, 56, 43, 0.08); padding: 5px 12px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; color: var(--primary); transition: all 0.2s; }}
-    .lang-btn:hover {{ background: var(--primary); color: #fff; }}
     .header-cta {{ display: flex; align-items: center; gap: 14px; }}
     .phone-btn {{ display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--primary); }}
     .phone-btn:hover {{ color: var(--accent); }}
@@ -491,7 +499,6 @@ def generate_landing_html(item, slug, lang='en'):
         <a href="#colours" class="nav-link">{nav_colours}</a>
         <a href="#reviews" class="nav-link">{nav_reviews}</a>
         <a href="#areas" class="nav-link">{nav_areas}</a>
-        {lang_toggle}
       </nav>
 
       <div class="header-cta">
@@ -678,27 +685,27 @@ def generate_landing_html(item, slug, lang='en'):
 
         <div class="color-picker-box">
           <div class="palette-grid" role="radiogroup" aria-label="Colorbond Color Choices">
-            <button type="button" class="palette-btn active" data-color="Monument" data-hex="#34373b" data-desc="Monument®: глубокий графитовый угольный оттенок #1 в Австралии. Идеальный контраст с современной штукатуркой и садом." if lang=='ru' else 'data-desc="Australia\'s #1 choice: deep confident charcoal creating stunning contrast against natural gardens."'>
+            <button type="button" class="palette-btn active" data-color="Monument" data-hex="#34373b" data-desc="{desc_monument}">
               <div class="color-chip" style="background-color: var(--monument);"></div>
               <span class="palette-name">Monument®</span>
             </button>
-            <button type="button" class="palette-btn" data-color="Woodland Grey" data-hex="#4e5347" data-desc="Woodland Grey®: натуральный темно-оливковый серый оттенок, гармонирующий с австралийской растительностью." if lang=='ru' else 'data-desc="Natural dark olive-grey that blends seamlessly with Australian eucalypts."'>
+            <button type="button" class="palette-btn" data-color="Woodland Grey" data-hex="#4e5347" data-desc="{desc_woodland}">
               <div class="color-chip" style="background-color: var(--woodland);"></div>
               <span class="palette-name">Woodland Grey®</span>
             </button>
-            <button type="button" class="palette-btn" data-color="Surfmist" data-hex="#e2e1d7" data-desc="Surfmist®: свежий прибрежный кремово-белый цвет. Визуально расширяет пространство участка." if lang=='ru' else 'data-desc="Fresh, clean, coastal off-white. Makes narrow suburban blocks look significantly brighter and more spacious."'>
+            <button type="button" class="palette-btn" data-color="Surfmist" data-hex="#e2e1d7" data-desc="{desc_surfmist}">
               <div class="color-chip" style="background-color: var(--surfmist);"></div>
               <span class="palette-name">Surfmist®</span>
             </button>
-            <button type="button" class="palette-btn" data-color="Basalt" data-hex="#64686e" data-desc="Basalt®: современный минеральный серый с холодным подтоном под камень, дерево и кирпич." if lang=='ru' else 'data-desc="Contemporary mineral grey with cool undertones, perfectly suited to timber, stone, and brick facades."'>
+            <button type="button" class="palette-btn" data-color="Basalt" data-hex="#64686e" data-desc="{desc_basalt}">
               <div class="color-chip" style="background-color: var(--basalt);"></div>
               <span class="palette-name">Basalt®</span>
             </button>
-            <button type="button" class="palette-btn" data-color="Dune" data-hex="#b3aba2" data-desc="Dune®: теплый нейтральный песчаный оттенок. Отлично сочетается с классической кирпичной кладкой." if lang=='ru' else 'data-desc="Warm, neutral earth tone inspired by coastal sand dunes. Complements classic Australian brickwork."'>
+            <button type="button" class="palette-btn" data-color="Dune" data-hex="#b3aba2" data-desc="{desc_dune}">
               <div class="color-chip" style="background-color: var(--dune);"></div>
               <span class="palette-name">Dune®</span>
             </button>
-            <button type="button" class="palette-btn" data-color="Night Sky" data-hex="#1c1d21" data-desc="Night Sky®: глубокий эффектный черный цвет. Подчеркивает зелень растений и зону бассейна." if lang=='ru' else 'data-desc="Sophisticated, dramatic deep black. Makes plants, pool areas, and architectural features stand out."'>
+            <button type="button" class="palette-btn" data-color="Night Sky" data-hex="#1c1d21" data-desc="{desc_nightsky}">
               <div class="color-chip" style="background-color: var(--nightsky);"></div>
               <span class="palette-name">Night Sky®</span>
             </button>
@@ -708,7 +715,7 @@ def generate_landing_html(item, slug, lang='en'):
             <div>
               <h4 id="previewColorName" style="color: var(--primary); font-size: 1.25rem; margin-bottom: 4px;">Selected Colour: Monument®</h4>
               <p id="previewColorDesc" style="color: var(--text-muted); font-size: 0.95rem; max-width: 650px;">
-                {'Monument®: глубокий графитовый угольный оттенок #1 в Австралии. Идеальный контраст с современной штукатуркой и садом.' if lang=='ru' else "Australia's #1 choice: a deep, confident charcoal that creates stunning contrast against natural gardens and modern render."}
+                {desc_monument}
               </p>
             </div>
             <a href="#quote" class="btn btn-dark">{col_btn}</a>

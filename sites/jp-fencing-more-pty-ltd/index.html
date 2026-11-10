@@ -51,8 +51,6 @@
     .header-nav { display: flex; align-items: center; gap: 20px; }
     .nav-link { font-weight: 600; font-size: 0.95rem; color: var(--text); transition: color 0.2s; }
     .nav-link:hover { color: var(--accent); }
-    .lang-btn { display: inline-flex; align-items: center; gap: 5px; background: rgba(25, 56, 43, 0.08); padding: 5px 12px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; color: var(--primary); transition: all 0.2s; }
-    .lang-btn:hover { background: var(--primary); color: #fff; }
     .header-cta { display: flex; align-items: center; gap: 14px; }
     .phone-btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--primary); }
     .phone-btn:hover { color: var(--accent); }
@@ -193,7 +191,6 @@
         <a href="#colours" class="nav-link">Colorbond® Colours</a>
         <a href="#reviews" class="nav-link">74+ Reviews</a>
         <a href="#areas" class="nav-link">Areas Serviced</a>
-        <a href="ru.html" class="lang-btn" title="Переключить на русский">🇷🇺 Русский</a>
       </nav>
 
       <div class="header-cta">
@@ -380,27 +377,27 @@
 
         <div class="color-picker-box">
           <div class="palette-grid" role="radiogroup" aria-label="Colorbond Color Choices">
-            <button type="button" class="palette-btn active" data-color="Monument" data-hex="#34373b" data-desc="Monument®: глубокий графитовый угольный оттенок #1 в Австралии. Идеальный контраст с современной штукатуркой и садом." if lang=='ru' else 'data-desc="Australia's #1 choice: deep confident charcoal creating stunning contrast against natural gardens."'>
+            <button type="button" class="palette-btn active" data-color="Monument" data-hex="#34373b" data-desc="Australia's #1 choice: a deep, confident charcoal that creates stunning contrast against natural gardens and modern render.">
               <div class="color-chip" style="background-color: var(--monument);"></div>
               <span class="palette-name">Monument®</span>
             </button>
-            <button type="button" class="palette-btn" data-color="Woodland Grey" data-hex="#4e5347" data-desc="Woodland Grey®: натуральный темно-оливковый серый оттенок, гармонирующий с австралийской растительностью." if lang=='ru' else 'data-desc="Natural dark olive-grey that blends seamlessly with Australian eucalypts."'>
+            <button type="button" class="palette-btn" data-color="Woodland Grey" data-hex="#4e5347" data-desc="Natural, organic dark olive-grey that blends seamlessly with Australian eucalypts and native vegetation.">
               <div class="color-chip" style="background-color: var(--woodland);"></div>
               <span class="palette-name">Woodland Grey®</span>
             </button>
-            <button type="button" class="palette-btn" data-color="Surfmist" data-hex="#e2e1d7" data-desc="Surfmist®: свежий прибрежный кремово-белый цвет. Визуально расширяет пространство участка." if lang=='ru' else 'data-desc="Fresh, clean, coastal off-white. Makes narrow suburban blocks look significantly brighter and more spacious."'>
+            <button type="button" class="palette-btn" data-color="Surfmist" data-hex="#e2e1d7" data-desc="Fresh, clean, coastal off-white. Makes narrow suburban blocks look significantly brighter and more spacious.">
               <div class="color-chip" style="background-color: var(--surfmist);"></div>
               <span class="palette-name">Surfmist®</span>
             </button>
-            <button type="button" class="palette-btn" data-color="Basalt" data-hex="#64686e" data-desc="Basalt®: современный минеральный серый с холодным подтоном под камень, дерево и кирпич." if lang=='ru' else 'data-desc="Contemporary mineral grey with cool undertones, perfectly suited to timber, stone, and brick facades."'>
+            <button type="button" class="palette-btn" data-color="Basalt" data-hex="#64686e" data-desc="Contemporary mineral grey with cool undertones, perfectly suited to timber, stone, and brick facades.">
               <div class="color-chip" style="background-color: var(--basalt);"></div>
               <span class="palette-name">Basalt®</span>
             </button>
-            <button type="button" class="palette-btn" data-color="Dune" data-hex="#b3aba2" data-desc="Dune®: теплый нейтральный песчаный оттенок. Отлично сочетается с классической кирпичной кладкой." if lang=='ru' else 'data-desc="Warm, neutral earth tone inspired by coastal sand dunes. Complements classic Australian brickwork."'>
+            <button type="button" class="palette-btn" data-color="Dune" data-hex="#b3aba2" data-desc="Warm, neutral earth tone inspired by coastal sand dunes. Complements classic Australian brickwork.">
               <div class="color-chip" style="background-color: var(--dune);"></div>
               <span class="palette-name">Dune®</span>
             </button>
-            <button type="button" class="palette-btn" data-color="Night Sky" data-hex="#1c1d21" data-desc="Night Sky®: глубокий эффектный черный цвет. Подчеркивает зелень растений и зону бассейна." if lang=='ru' else 'data-desc="Sophisticated, dramatic deep black. Makes plants, pool areas, and architectural features stand out."'>
+            <button type="button" class="palette-btn" data-color="Night Sky" data-hex="#1c1d21" data-desc="Sophisticated, dramatic deep black. Makes plants, pool areas, and architectural features stand out.">
               <div class="color-chip" style="background-color: var(--nightsky);"></div>
               <span class="palette-name">Night Sky®</span>
             </button>
