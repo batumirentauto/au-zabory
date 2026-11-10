@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><meta name='viewport' content='width=device-width, initial-scale=1.0'></head>
+<body style='margin:0;'>
+<div style='width:500px;'>Too wide</div>
+<div id='audit-output'>PENDING</div>
+<script>
+const docWidth = document.documentElement.clientWidth;
+document.getElementById('audit-output').textContent = 'VIEWPORT:' + docWidth + ' SCROLLWIDTH:' + document.documentElement.scrollWidth;
+</script>
+</body>
+</html>

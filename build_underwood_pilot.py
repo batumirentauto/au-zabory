@@ -6,7 +6,6 @@ import html
 with open('underwood_review_photos.json', 'r', encoding='utf-8') as f:
     review_photos = json.load(f)
 
-# Load profiles
 from contractor_profiles import CONTRACTOR_PROFILES, COLORBOND_COLOURS, SUBURBS_MAP, clean_phone_number
 
 with open('colorbond_modular_fencing_australia.json', 'r', encoding='utf-8') as f:
@@ -67,7 +66,7 @@ def build_pilot_html(lang='en'):
         brand_sub = f"Colorbond & Modular Fencing • {city}"
         nav_services = "Services"
         nav_colours = "Colours"
-        nav_reviews = "Customer Reviews"
+        nav_reviews = "Reviews"
         nav_areas = "Areas"
         nav_btn = "Free Quote"
         
@@ -122,6 +121,8 @@ def build_pilot_html(lang='en'):
         footer_rights = f"© 2026 {name}. All rights reserved. Licensed fencing and structural contractor in {city}."
         calc_btn_text = "Get Price Estimate"
         photo_label = "Photos attached by client:"
+        mobile_call = f"Call {lead_name}"
+        mobile_quote = "Free Quote"
     else:
         lang_code = "ru"
         page_title = f"{name} | Заборы Colorbond® и модульные стены {city} — Смета онлайн"
@@ -130,7 +131,7 @@ def build_pilot_html(lang='en'):
         brand_sub = f"Заборы Colorbond, модульные стены и ворота • {city}"
         nav_services = "Услуги"
         nav_colours = "Палитра"
-        nav_reviews = "Отзывы клиентов"
+        nav_reviews = "Отзывы"
         nav_areas = "Районы"
         nav_btn = "Заказать расчет"
         
@@ -185,6 +186,8 @@ def build_pilot_html(lang='en'):
         footer_rights = f"© 2026 {name}. Все права защищены. Лицензированный подрядчик по ограждениям в {city}."
         calc_btn_text = "Рассчитать стоимость"
         photo_label = "Фотографии от клиента к отзыву:"
+        mobile_call = "Позвонить"
+        mobile_quote = "Заказать замер"
 
     # Build Reviews with attached photos
     ru_translations = profile.get('reviews_ru', [])
@@ -207,7 +210,6 @@ def build_pilot_html(lang='en'):
         date_disp = date_en if lang == 'en' else date_ru
         text_disp = text_en if lang == 'en' else text_ru
         
-        # Check attached photos for this specific reviewer
         attached = review_photos.get(author, [])
         photos_html = ""
         if attached:
@@ -252,7 +254,7 @@ def build_pilot_html(lang='en'):
 <html lang="{lang_code}">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="referrer" content="no-referrer">
   <title>{html.escape(page_title)}</title>
   <meta name="description" content="{html.escape(meta_desc)}">
@@ -272,18 +274,31 @@ def build_pilot_html(lang='en'):
       --text: #1F2937;
       --text-muted: #6B7280;
       --radius: 12px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
       --shadow-md: 0 4px 14px rgba(0,0,0,0.08);
       --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
     }}
 
-    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    body {{
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    *, *::before, *::after {{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }}
+    
+    html, body {{
+      max-width: 100%;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       -webkit-font-smoothing: antialiased;
+    }}
+
+    /* Global iOS input zoom fix */
+    input, select, textarea {{
+      font-size: 16px !important;
     }}
 
     .container {{
@@ -300,7 +315,7 @@ def build_pilot_html(lang='en'):
       font-weight: 600;
       text-align: center;
       padding: 8px 16px;
-      letter-spacing: 0.4px;
+      letter-spacing: 0.3px;
     }}
 
     /* Header */
@@ -309,6 +324,7 @@ def build_pilot_html(lang='en'):
       top: 0;
       background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       z-index: 1000;
       border-bottom: 1px solid var(--border);
       padding: 12px 0;
@@ -318,12 +334,12 @@ def build_pilot_html(lang='en'):
       justify-content: space-between;
       align-items: center;
       gap: 16px;
-      flex-wrap: nowrap;
     }}
     .brand {{
       display: flex;
       flex-direction: column;
-      flex-shrink: 0;
+      flex-shrink: 1;
+      min-width: 0;
       text-decoration: none;
     }}
     .brand-title {{
@@ -332,6 +348,8 @@ def build_pilot_html(lang='en'):
       color: var(--primary);
       letter-spacing: -0.3px;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }}
     .brand-subtitle {{
       font-size: 0.68rem;
@@ -344,7 +362,7 @@ def build_pilot_html(lang='en'):
     .header-nav {{
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 22px;
       flex-shrink: 1;
     }}
     .nav-link {{
@@ -362,7 +380,6 @@ def build_pilot_html(lang='en'):
       align-items: center;
       gap: 12px;
       flex-shrink: 0;
-      white-space: nowrap;
     }}
     .phone-btn {{
       display: inline-flex;
@@ -377,7 +394,6 @@ def build_pilot_html(lang='en'):
       background: rgba(25, 56, 43, 0.06);
       text-decoration: none;
       transition: background 0.2s;
-      flex-shrink: 0;
     }}
     .phone-btn:hover {{ background: rgba(25, 56, 43, 0.12); color: var(--accent); }}
     
@@ -413,15 +429,6 @@ def build_pilot_html(lang='en'):
     }}
     .btn-dark:hover {{
       background: var(--primary-light);
-    }}
-
-    @media (max-width: 1100px) {{
-      .header-nav {{ display: none !important; }}
-    }}
-    @media (max-width: 650px) {{
-      .phone-btn {{ display: none !important; }}
-      .brand-title {{ font-size: 1rem; }}
-      .brand-subtitle {{ display: none; }}
     }}
 
     /* Hero Section */
@@ -523,7 +530,7 @@ def build_pilot_html(lang='en'):
       padding: 12px 14px;
       border: 1px solid var(--border);
       border-radius: 8px;
-      font-size: 0.95rem;
+      font-size: 16px !important;
       background: #FAFAF7;
       transition: border-color 0.2s, background 0.2s;
     }}
@@ -849,12 +856,324 @@ def build_pilot_html(lang='en'):
       text-align: center;
     }}
 
-    @media (max-width: 960px) {{
-      .hero-grid {{ grid-template-columns: 1fr; gap: 40px; }}
-      .services-grid {{ grid-template-columns: 1fr; }}
-      .colours-grid {{ grid-template-columns: repeat(2, 1fr); }}
-      .reviews-grid {{ grid-template-columns: 1fr; }}
-      .hero h1 {{ font-size: 2.2rem; }}
+    /* Mobile Sticky Bottom Call & Quote Bar */
+    .mobile-bottom-bar {{
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      padding: 10px 14px;
+      z-index: 9999;
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+    }}
+    .mobile-bottom-bar-inner {{
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+    }}
+    .btn-mobile-call {{
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 12px 10px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+    }}
+    .btn-mobile-quote {{
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 12px 10px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+    }}
+
+    /* ========================================================
+       SMARTPHONE RESPONSIVE BREAKPOINTS (max-width: 768px)
+       ======================================================== */
+    @media (max-width: 768px) {{
+      body {{
+        padding-bottom: 68px; /* space for sticky bar */
+      }}
+      .mobile-bottom-bar {{
+        display: block;
+      }}
+      .container {{
+        padding: 0 14px;
+      }}
+      
+      /* Top Banner */
+      .top-banner {{
+        font-size: 0.72rem;
+        padding: 6px 10px;
+        line-height: 1.35;
+      }}
+      
+      /* Header */
+      .header {{
+        padding: 8px 0;
+      }}
+      .header .container {{
+        gap: 8px;
+        padding: 0 14px;
+      }}
+      .brand-title {{
+        font-size: 0.92rem;
+        letter-spacing: -0.2px;
+      }}
+      .brand-subtitle {{
+        display: none;
+      }}
+      .header-nav {{
+        display: none !important;
+      }}
+      .phone-btn {{
+        display: none !important;
+      }}
+      .header-cta .btn {{
+        padding: 7px 12px;
+        font-size: 0.8rem;
+        border-radius: 6px;
+      }}
+      
+      /* Hero */
+      .hero {{
+        padding: 24px 0 32px;
+      }}
+      .hero-grid {{
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }}
+      .hero-badge {{
+        font-size: 0.75rem;
+        padding: 4px 10px;
+        margin-bottom: 12px;
+      }}
+      .hero h1 {{
+        font-size: 1.75rem;
+        line-height: 1.2;
+        margin-bottom: 14px;
+        letter-spacing: -0.5px;
+      }}
+      .hero-desc {{
+        font-size: 0.92rem;
+        line-height: 1.55;
+        margin-bottom: 18px;
+      }}
+      .hero-features {{
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-bottom: 22px;
+      }}
+      .hero-feature-item {{
+        font-size: 0.85rem;
+      }}
+      .hero-actions {{
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+      }}
+      .hero-actions .btn {{
+        width: 100%;
+        padding: 13px;
+        font-size: 0.95rem;
+      }}
+      
+      /* Quote Form */
+      .quote-card {{
+        padding: 20px 16px;
+        border-radius: 12px;
+      }}
+      .quote-card h3 {{
+        font-size: 1.15rem;
+      }}
+      .quote-card p {{
+        font-size: 0.82rem;
+        margin-bottom: 16px;
+      }}
+      .form-row {{
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }}
+      .form-control {{
+        font-size: 16px !important;
+        padding: 11px 12px;
+      }}
+      
+      /* Sections */
+      .section {{
+        padding: 42px 0;
+      }}
+      .section-header {{
+        margin-bottom: 28px;
+      }}
+      .section-kicker {{
+        font-size: 0.72rem;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+      }}
+      .section-title {{
+        font-size: 1.55rem;
+        line-height: 1.25;
+        margin-bottom: 10px;
+      }}
+      .section-sub {{
+        font-size: 0.88rem;
+        line-height: 1.5;
+      }}
+      
+      /* Services */
+      .services-grid {{
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }}
+      .service-card {{
+        border-radius: 12px;
+      }}
+      .service-img-wrap {{
+        height: 190px;
+      }}
+      .service-body {{
+        padding: 18px 16px;
+      }}
+      .service-body h3 {{
+        font-size: 1.15rem;
+        margin-bottom: 8px;
+      }}
+      .service-body p {{
+        font-size: 0.86rem;
+        line-height: 1.5;
+        margin-bottom: 16px;
+      }}
+      .service-features li {{
+        font-size: 0.82rem;
+        margin-bottom: 6px;
+      }}
+      .service-body .btn {{
+        padding: 11px;
+        font-size: 0.88rem;
+      }}
+      
+      /* Colours */
+      .colours-grid {{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }}
+      .colour-card {{
+        padding: 10px;
+        border-radius: 10px;
+      }}
+      .colour-swatch {{
+        height: 60px;
+        margin-bottom: 8px;
+      }}
+      .colour-name {{
+        font-size: 0.82rem;
+      }}
+      .colour-desc {{
+        font-size: 0.72rem;
+        line-height: 1.35;
+      }}
+      
+      /* Reviews */
+      .reviews-grid {{
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 24px;
+      }}
+      .review-card {{
+        padding: 18px 16px;
+        border-radius: 12px;
+      }}
+      .reviewer-name {{
+        font-size: 0.95rem;
+      }}
+      .review-date {{
+        font-size: 0.78rem;
+      }}
+      .review-text {{
+        font-size: 0.88rem;
+        line-height: 1.55;
+        margin-bottom: 14px;
+      }}
+      .review-attached-photos {{
+        margin-top: 12px;
+        margin-bottom: 14px;
+        padding-top: 12px;
+      }}
+      .review-photos-label {{
+        font-size: 0.72rem;
+        margin-bottom: 8px;
+      }}
+      .review-photos-grid {{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }}
+      .review-photo-link {{
+        aspect-ratio: 1 / 1;
+        border-radius: 8px;
+      }}
+      .review-photo-thumb {{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }}
+      
+      /* Suburbs */
+      .suburbs-grid {{
+        gap: 6px;
+      }}
+      .suburb-tag {{
+        padding: 6px 12px;
+        font-size: 0.78rem;
+      }}
+      
+      /* CTA Banner */
+      .cta-banner {{
+        padding: 44px 0;
+      }}
+      .cta-banner h2 {{
+        font-size: 1.6rem;
+        line-height: 1.25;
+      }}
+      .cta-banner p {{
+        font-size: 0.9rem;
+        margin-bottom: 22px;
+      }}
+      .cta-actions {{
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }}
+      .cta-actions .btn {{
+        width: 100%;
+        padding: 13px;
+        font-size: 0.95rem;
+      }}
+      
+      /* Footer */
+      .site-footer {{
+        padding: 30px 0;
+        font-size: 0.78rem;
+      }}
     }}
   </style>
 </head>
@@ -920,8 +1239,8 @@ def build_pilot_html(lang='en'):
         </div>
 
         <div class="hero-actions">
-          <a href="#quote-form" class="btn btn-primary" style="padding: 13px 28px; font-size: 1rem;">{hero_btn_quote}</a>
-          <a href="tel:{clean_phone}" class="btn btn-dark" style="padding: 13px 24px; font-size: 1rem;">{hero_btn_call}</a>
+          <a href="#quote-form" class="btn btn-primary">{hero_btn_quote}</a>
+          <a href="tel:{clean_phone}" class="btn btn-dark">{hero_btn_call}</a>
         </div>
       </div>
 
@@ -1099,6 +1418,19 @@ def build_pilot_html(lang='en'):
     </div>
   </footer>
 
+  <!-- Mobile Sticky Bottom Bar -->
+  <div class="mobile-bottom-bar">
+    <div class="mobile-bottom-bar-inner">
+      <a href="tel:{clean_phone}" class="btn-mobile-call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>{mobile_call}</span>
+      </a>
+      <a href="#quote" class="btn-mobile-quote">
+        <span>{mobile_quote} →</span>
+      </a>
+    </div>
+  </div>
+
 </body>
 </html>'''
 
@@ -1110,4 +1442,4 @@ with open(os.path.join(site_dir, 'index.html'), 'w', encoding='utf-8') as f:
 with open(os.path.join(site_dir, 'ru.html'), 'w', encoding='utf-8') as f:
     f.write(build_pilot_html(lang='ru'))
 
-print("Pilot Underwood Fencing and Gates site generated with AI service images and client review photos!")
+print("Pilot Underwood Fencing and Gates site rebuilt with mobile-first responsive architecture!")
