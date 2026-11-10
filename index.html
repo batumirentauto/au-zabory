@@ -3,1091 +3,709 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Australian Fencing Contractors • Sales & Outreach Hub (20 Companies)</title>
+  <title>Australian Fencing Contractors — Live Demo Hub (All 20 Personalized Sites)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0d1512;
-      --card-bg: #14201c;
-      --card-border: #1f302a;
-      --primary: #10b981;
-      --accent: #f28c28;
-      --text: #f1f5f3;
-      --text-muted: #8da498;
-      --radius: 14px;
+      --primary: #19382B;
+      --accent: #F28C28;
+      --bg: #F8FAF9;
+      --border: #E2E8F0;
+      --text: #0F172A;
+      --text-muted: #64748B;
+      --radius: 12px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; padding: 40px 20px; }
-    .container { max-width: 1320px; margin: 0 auto; }
-
-    /* Header */
-    .hub-header { text-align: center; margin-bottom: 40px; }
-    .hub-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.12); color: var(--primary); border: 1px solid rgba(16, 185, 129, 0.25); padding: 6px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
-    .hub-title { font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; font-weight: 800; color: #fff; margin-bottom: 12px; }
-    .hub-title span { color: var(--primary); }
-    .hub-desc { color: var(--text-muted); font-size: 1.1rem; max-width: 780px; margin: 0 auto; }
-
-    /* KPI Row */
-    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 34px; }
-    .kpi-card { background: var(--card-bg); border: 1px solid var(--card-border); padding: 20px; border-radius: var(--radius); text-align: center; }
-    .kpi-val { font-size: 2rem; font-weight: 800; color: #fff; font-family: 'Space Grotesk', sans-serif; margin-bottom: 4px; }
-    .kpi-label { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-
-    /* Controls */
-    .controls { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 30px; }
-    .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
-    .filter-btn { background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-muted); padding: 8px 16px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; }
-    .filter-btn.active, .filter-btn:hover { background: var(--primary); color: #0d1512; border-color: var(--primary); }
-    
-    .search-box { position: relative; min-width: 280px; }
-    .search-input { width: 100%; background: var(--card-bg); border: 1px solid var(--card-border); color: #fff; padding: 10px 16px; border-radius: 8px; font-size: 0.9rem; font-family: inherit; }
-    .search-input:focus { outline: none; border-color: var(--primary); }
-
-    /* Cards Grid */
-    .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .biz-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, border-color 0.2s; }
-    .biz-card:hover { transform: translateY(-3px); border-color: rgba(16, 185, 129, 0.4); }
-
-    .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 10px; }
-    .biz-name { font-size: 1.25rem; font-weight: 700; color: #fff; }
-    .state-badge { background: rgba(255, 255, 255, 0.08); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 4px 8px; border-radius: 6px; }
-    
-    .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; margin-bottom: 14px; }
-    .status-no-site { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
-    .status-fb { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
-    .status-aggr { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
-
-    .stats-row { display: flex; gap: 14px; background: rgba(0, 0, 0, 0.25); padding: 10px 14px; border-radius: 8px; margin-bottom: 16px; font-size: 0.85rem; }
-    .stars { color: #f59e0b; font-weight: 800; }
-    .review-recency { color: #9fe2bf; font-weight: 600; margin-left: auto; }
-
-    .info-list { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
-    .info-list p { margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
-
-    /* Actions */
-    .card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: auto; }
-    .btn-action { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.85rem; font-weight: 700; padding: 10px 12px; border-radius: 8px; border: none; cursor: pointer; transition: all 0.2s; min-height: 40px; text-align: center; }
-    .btn-view { background: var(--primary); color: #0d1512; }
-    .btn-view:hover { background: #059669; }
-    .btn-ru { background: rgba(59, 130, 246, 0.18); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.35); }
-    .btn-ru:hover { background: rgba(59, 130, 246, 0.3); color: #fff; }
-    .btn-wa { background: #25D366; color: #fff; }
-    .btn-wa:hover { background: #1ebc59; }
-    .btn-copy { background: rgba(255, 255, 255, 0.08); color: #fff; border: 1px solid var(--card-border); }
-    .btn-copy:hover { background: rgba(255, 255, 255, 0.15); }
-    .btn-map { background: rgba(255, 255, 255, 0.08); color: #fff; border: 1px solid var(--card-border); grid-column: span 2; }
-    .btn-map:hover { background: rgba(255, 255, 255, 0.15); }
-
-    .toast { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: #0d1512; font-weight: 800; padding: 12px 24px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); transform: translateY(100px); opacity: 0; transition: all 0.3s; z-index: 1000; }
-    .toast.show { transform: translateY(0); opacity: 1; }
-
-    @media (max-width: 900px) {
-      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-      .cards-grid { grid-template-columns: 1fr; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .hub-header {
+      text-align: center;
+      max-width: 880px;
+      margin: 0 auto 48px;
+    }
+    .hub-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: #E6F4EA;
+      color: #137333;
+      font-weight: 700;
+      font-size: 0.82rem;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .hub-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hub-title span { color: var(--accent); }
+    .hub-sub {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .hub-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .hub-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: all 0.2s;
+    }
+    .hub-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+      border-color: var(--accent);
+    }
+    .hub-card-thumb {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .hub-rating-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(0,0,0,0.75);
+      color: #FBBF24;
+      font-weight: 700;
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      backdrop-filter: blur(4px);
+    }
+    .hub-installer-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .hub-card-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .hub-card-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .hub-card-city {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .hub-card-lead {
+      font-size: 0.86rem;
+      color: #475569;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    .hub-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .hub-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 6px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .hub-btn-en {
+      background: var(--primary);
+      color: #fff;
+    }
+    .hub-btn-en:hover { background: #285542; }
+    .hub-btn-ru {
+      background: #F1F5F9;
+      color: #334155;
+      border: 1px solid var(--border);
+    }
+    .hub-btn-ru:hover { background: #E2E8F0; color: #0F172A; }
+    .hub-btn-wa {
+      background: #25D366;
+      color: #fff;
+    }
+    .hub-btn-wa:hover { background: #20BD5A; }
+    @media (max-width: 1050px) {
+      .hub-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .hub-grid { grid-template-columns: 1fr; }
+      .hub-title { font-size: 2.1rem; }
     }
   </style>
 </head>
 <body>
-
   <div class="container">
-    
-    <!-- Header -->
     <header class="hub-header">
-      <div class="hub-badge">Australia Outreach Machine</div>
-      <h1 class="hub-title">Colorbond & Modular Fencing <span>Client Hub</span></h1>
-      <p class="hub-desc">
-        All 20 verified Australian contractors with ready-to-sell demo landing pages (English + Russian versions), direct WhatsApp links, and tailored pitch templates.
+      <div class="hub-badge">20 Personalized Sites Ready For Outreach</div>
+      <h1 class="hub-title">Australian Fencing Contractors <span>Live Hub</span></h1>
+      <p class="hub-sub">
+        Every contractor below has a completely unique demo landing page powered by their real Google Maps reviews, authentic fence photos, and personalized lead tradesperson information.
       </p>
     </header>
 
-    <!-- KPI Highlights -->
-    <section class="kpi-grid">
-      <div class="kpi-card">
-        <div class="kpi-val">20</div>
-        <div class="kpi-label">Ready Demo Websites</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-val">95%</div>
-        <div class="kpi-label">Mobile WhatsApp Line</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-val">4.8 – 5.0★</div>
-        <div class="kpi-label">Top Google Rating</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-val">&lt; 4 mo</div>
-        <div class="kpi-label">Active Review Recency</div>
-      </div>
-    </section>
-
-    <!-- Filter & Search Controls -->
-    <div class="controls">
-      <div class="filter-tabs">
-        <button class="filter-btn active" data-filter="all">All States (20)</button>
-        <button class="filter-btn" data-filter="NSW">NSW (7)</button>
-        <button class="filter-btn" data-filter="QLD">QLD (4)</button>
-        <button class="filter-btn" data-filter="WA">WA (4)</button>
-        <button class="filter-btn" data-filter="VIC">VIC (2)</button>
-        <button class="filter-btn" data-filter="SA">SA (2)</button>
-        <button class="filter-btn" data-filter="ACT">ACT (1)</button>
-      </div>
-
-      <div class="search-box">
-        <input type="text" id="searchBox" class="search-input" placeholder="Search by company or suburb...">
-      </div>
+    <div class="hub-grid">
+              <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLd05xj5_WCXGXRIYZZJIEurB7KvjLp0PdZwK-tJxEtIqp-DwbMOCLLacNjRALUiQqPFKxUNkiobXrvRo74Yif5LqcbxkH_BRhhFQIiV1Y6SkitX4Qk7LcGMdqfCWCFpYETYzwEbG6Lpa87f=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 5.0 (80)</span>
+            <span class="hub-installer-badge">Max</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">Underwood Fencing and Gates</h3>
+            <div class="hub-card-city">📍 Sydney NSW • 📞 +61 418 446 509</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Max. <strong>Specialty:</strong> Colorbond® Boundary & Retaining Wall Privacy Fencing</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/underwood-fencing-and-gates/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/underwood-fencing-and-gates/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61418446509?text=G%27day%20Max%2C%20saw%20your%205.0%E2%98%85%20Google%20reviews%20for%20Underwood%20Fencing%20and%20Gates%20in%20Sydney%20NSW.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/underwood-fencing-and-gates/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLfDBSip6gGlblchArPkTqMXDeXx13VipQ8fYpWAxoZhDPItgXvC5ujtMqGulFWPu0xJpSaYQKLm-_i0C8qEf0QSef815aikP0rBoPU4mc5irnlLevUKf2hZkKL82sELMfjny5wxkurwx28=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 4.9 (142)</span>
+            <span class="hub-installer-badge">Arthur and Kiri</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">Affordable Fencing Company</h3>
+            <div class="hub-card-city">📍 Sydney NSW • 📞 +61 417 226 520</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Arthur and Kiri. <strong>Specialty:</strong> Old Timber Fence Replacement & Custom Gates</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/affordable-fencing-company/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/affordable-fencing-company/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61417226520?text=G%27day%20Arthur%20and%20Kiri%2C%20saw%20your%204.9%E2%98%85%20Google%20reviews%20for%20Affordable%20Fencing%20Company%20in%20Sydney%20NSW.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/affordable-fencing-company/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLeRfVYyfVvNHZkoiZuDmUyuTw41GX5kF1YFqzpRbgy6pHzC4Ns6DCL9eMdJTElVOgLCeRnFKsnPd5xAAdt_MfdhctxoAoZsyK9MB-DoWQNI2c_n3zXB_3eu9MwTbb87fuKXoNo6wcRfDCU=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 4.9 (41)</span>
+            <span class="hub-installer-badge">Nick</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">Anthony's Fencing</h3>
+            <div class="hub-card-city">📍 Sydney NSW • 📞 +61 435 256 220</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Nick. <strong>Specialty:</strong> Feature Fencing & Backyard Transformations</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/anthonys-fencing/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/anthonys-fencing/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61435256220?text=G%27day%20Nick%2C%20saw%20your%204.9%E2%98%85%20Google%20reviews%20for%20Anthony%27s%20Fencing%20in%20Sydney%20NSW.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/anthonys-fencing/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLcpKMux06qXQGctamlR-kB7NYKKIClzmyIEqdT7Jhd3khL2X6hmLoPOZ72Z5fZPDVyWFXAKNAmalTE2I76jSPNq0S8HG9v0nKO48HMldMCNgkr8Ew18dhhcteLbYZOyYsODw56cvyF_WH4E=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 5.0 (39)</span>
+            <span class="hub-installer-badge">Andrei Petushkov</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">Highline Fencing</h3>
+            <div class="hub-card-city">📍 Parramatta NSW • 📞 +61 403 144 520</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Andrei Petushkov. <strong>Specialty:</strong> Certified Pool Safety Fencing & Colorbond Repairs</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/highline-fencing/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/highline-fencing/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61403144520?text=G%27day%20Andrei%20Petushkov%2C%20saw%20your%205.0%E2%98%85%20Google%20reviews%20for%20Highline%20Fencing%20in%20Parramatta%20NSW.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/highline-fencing/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLcAmplx1dn34F1G3BFQaFNkqSxLmQc-BiXdoF1uzGNB3wPDThjfMDS6vkrfe5_8yMAZOmC3RPgK3p1nY2AW5yOzpQpFx7PmMvzdMYOJJkm4D0M7HqqFEM4xCUu9ZnaRYFnkAi5jrLVvvgRH=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 4.8 (75)</span>
+            <span class="hub-installer-badge">Dale and Allen</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">DIY Dale</h3>
+            <div class="hub-card-city">📍 Campbelltown NSW • 📞 +61 488 998 399</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Dale and Allen. <strong>Specialty:</strong> Woodland Grey Slat Systems, Pool & Leaning Fence Alignment</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/diy-dale/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/diy-dale/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61488998399?text=G%27day%20Dale%20and%20Allen%2C%20saw%20your%204.8%E2%98%85%20Google%20reviews%20for%20DIY%20Dale%20in%20Campbelltown%20NSW.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/diy-dale/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLdd2e-u9vClbDzE6M9TAuv4WeSSKlQP4kGIi_rp4U6ha3kq2QgIJOZRPYeyPWnH2wngke_vYwmI6pHUILzXg0tTLv-s7QjInGJJ1UCFbyFcujjoyStipSRqDciYWYPnAJWruHAnpk4Gn54=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 5.0 (36)</span>
+            <span class="hub-installer-badge">Tim</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">STRAIGHT ARROW PROJECTS</h3>
+            <div class="hub-card-city">📍 Campbelltown NSW • 📞 +61 490 471 559</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Tim. <strong>Specialty:</strong> Retaining Walls with Integrated Colorbond® Fencing</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/straight-arrow-projects/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/straight-arrow-projects/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61490471559?text=G%27day%20Tim%2C%20saw%20your%205.0%E2%98%85%20Google%20reviews%20for%20STRAIGHT%20ARROW%20PROJECTS%20in%20Campbelltown%20NSW.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/straight-arrow-projects/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLdS5SqJiQQYdNKGJTXD3G2lvBveI-HMXXhY6d6qm2u78mNsrW9bv-piKF8AsYK1S2fl6O7vKAd0KergmJCXmHmajUh-y9z8kMi8kG53_CAtbekAWDc4XaVHPxk_FdhrO8IdIOo0Nj091NM=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 5.0 (57)</span>
+            <span class="hub-installer-badge">Ota</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">Mighty Fencing</h3>
+            <div class="hub-card-city">📍 Wollongong NSW • 📞 +61 401 044 638</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Ota. <strong>Specialty:</strong> Fast Turnaround Residential Colorbond® & Acoustic Walls</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/mighty-fencing/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/mighty-fencing/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61401044638?text=G%27day%20Ota%2C%20saw%20your%205.0%E2%98%85%20Google%20reviews%20for%20Mighty%20Fencing%20in%20Wollongong%20NSW.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/mighty-fencing/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLddBF0bDYJpUuK4Ez5C5ntU3_IEjbOGw3r3DbZZdSP4UgB5iw3YRDC9Hkqy_qEW8i8-_wBNZrFadzgr1qHbVSBvdASwDuerAe-QDfE-ZsNDw4qFxiqiaoX6XboNeeONqffebYvOuepP1fI=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 4.9 (149)</span>
+            <span class="hub-installer-badge">Travis (TJ)</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">TJ Fencing</h3>
+            <div class="hub-card-city">📍 Melbourne VIC • 📞 +61 407 351 849</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Travis (TJ). <strong>Specialty:</strong> Laser-Straight Posts in Tough & Rocky Ground</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/tj-fencing/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/tj-fencing/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61407351849?text=G%27day%20Travis%20%28TJ%29%2C%20saw%20your%204.9%E2%98%85%20Google%20reviews%20for%20TJ%20Fencing%20in%20Melbourne%20VIC.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/tj-fencing/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLfEJbzLYGQKQyS5OwYD_2zbZhQKqqdZ__fH0qx8eGCkVvIh6dxwB1HsamUtKz6I4mVgmCLiCTQgCOfKPYhRLhXHPkXCHvQMnwnJRAGmFOMT5jY27jLGNcMtdic-z1w9lGeP0kmFR_VoWmEH=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 5.0 (53)</span>
+            <span class="hub-installer-badge">Armstrong Team</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">Armstrong Fencing and Landscaping</h3>
+            <div class="hub-card-city">📍 Geelong VIC • 📞 +61 422 700 055</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Armstrong Team. <strong>Specialty:</strong> Concrete Sleeper Retaining Walls & Hybrid Fencing</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/armstrong-fencing-and-landscaping/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/armstrong-fencing-and-landscaping/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61422700055?text=G%27day%20Armstrong%20Team%2C%20saw%20your%205.0%E2%98%85%20Google%20reviews%20for%20Armstrong%20Fencing%20and%20Landscaping%20in%20Geelong%20VIC.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/armstrong-fencing-and-landscaping/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLcMkimr5O_kvBUELuVAoIsoNtrxQmy5WTksSxR4sqNtIoBdlxCL4OF7WbgPwFZaGbffbu1IYj7yMsXdaecN2rRXUwzXQCtF5NkesPsi4NJ1VxAVNJdXr6JGH-2FRVUXO--BGjmukQ=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 4.9 (74)</span>
+            <span class="hub-installer-badge">JP</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">JP Fencing & More Pty Ltd</h3>
+            <div class="hub-card-city">📍 Brisbane QLD • 📞 +61 415 585 594</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> JP. <strong>Specialty:</strong> 22 Colorbond® Designer Colours & Motorised Sliding Gates</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/jp-fencing-more-pty-ltd/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/jp-fencing-more-pty-ltd/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61415585594?text=G%27day%20JP%2C%20saw%20your%204.9%E2%98%85%20Google%20reviews%20for%20JP%20Fencing%20%26%20More%20Pty%20Ltd%20in%20Brisbane%20QLD.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/jp-fencing-more-pty-ltd/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLe-wiPUnxdusoDA1Jh95EuOct_iDQbNLok8x9xUejCppk3ycjw9g9FAbL2vpUrWVy4m3QUKhcR4durnkRI2z32PqdVt-StoV8Tmuu5ww0X8CP5nvmODQl9_A9va29uOVfMXZqa-Epq2eZwb=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 5.0 (156)</span>
+            <span class="hub-installer-badge">JD</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">JD Fence Masters</h3>
+            <div class="hub-card-city">📍 Brisbane QLD • 📞 +61 469 077 580</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> JD. <strong>Specialty:</strong> Stepped Colorbond® on Slopes & Under-Fence Plinths</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/jd-fence-masters/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/jd-fence-masters/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61469077580?text=G%27day%20JD%2C%20saw%20your%205.0%E2%98%85%20Google%20reviews%20for%20JD%20Fence%20Masters%20in%20Brisbane%20QLD.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/jd-fence-masters/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLcyx7GoOhVhZFse79IClUc8SLGQTI09AY7q-h_y7wkS0Rb4g2F6wnoxAPwMliQ9uFIJD9pLozk8W9BSx6H2jchEai1Y8q9FPuTaYHobZS95vwnrOz93z8M8Kjf_lHeSNRVBS9FykSgJlEM6=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 4.8 (23)</span>
+            <span class="hub-installer-badge">Michael</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">Bayside Fencing & Gates</h3>
+            <div class="hub-card-city">📍 Brisbane QLD • 📞 +61 401 279 273</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Michael. <strong>Specialty:</strong> Heavy-Duty Electric Gates & Coastal Rust-Proof Fencing</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/bayside-fencing-gates/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/bayside-fencing-gates/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61401279273?text=G%27day%20Michael%2C%20saw%20your%204.8%E2%98%85%20Google%20reviews%20for%20Bayside%20Fencing%20%26%20Gates%20in%20Brisbane%20QLD.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/bayside-fencing-gates/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLeW5o2fGGBflZkQXtK1OYrbmL0uq7xiZRJg2yOwECfUHhNGmlCpeTs7jiuDBsjqp-CMskvM68JQGgwpAf2ZQZ0z3oGcH-D5LAXsGiU0BvfesRnrbPns9r_notpZW-fZ0ZBsev0M9Huyabg5=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 4.9 (80)</span>
+            <span class="hub-installer-badge">Tony</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">Hernsley Fencing Services</h3>
+            <div class="hub-card-city">📍 Brisbane QLD • 📞 +61 404 873 373</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Tony. <strong>Specialty:</strong> Old Rotten Timber Removal & Acoustic Modular Noise Barriers</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/hernsley-fencing-services/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/hernsley-fencing-services/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61404873373?text=G%27day%20Tony%2C%20saw%20your%204.9%E2%98%85%20Google%20reviews%20for%20Hernsley%20Fencing%20Services%20in%20Brisbane%20QLD.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/hernsley-fencing-services/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLcxz6gNdS17v1XACxrjKjA33d9Q974vfy4IdV4UT0vusBYoLbMU1c3-9VicZKOpGRd5bTi0Lg4eciMVNzqT6S5Q7Bc-bx0joOg_a3FhWw7ov6oINanH__8mJLVbEw-OwM00s-VyRv3CIW4=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 5.0 (38)</span>
+            <span class="hub-installer-badge">Matt</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">Sentry Fencing</h3>
+            <div class="hub-card-city">📍 Joondalup WA • 📞 +61 433 791 961</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Matt. <strong>Specialty:</strong> Storm Damage Emergency Replacements & Horizontal Slat Screens</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/sentry-fencing/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/sentry-fencing/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61433791961?text=G%27day%20Matt%2C%20saw%20your%205.0%E2%98%85%20Google%20reviews%20for%20Sentry%20Fencing%20in%20Joondalup%20WA.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/sentry-fencing/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLeqnCVWj9NaG0NvhxcTgL8pTphcIsiWonfCH3d7VtptgXAvpdetkc3N7EgCFr4YS8xPlBYM-PPfzESecc4ptAN4uN6D6Nq5m76AIIR0HccEucFKIAWToG06F6dYPIz2gV6rkJ3Viw=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 4.8 (44)</span>
+            <span class="hub-installer-badge">Team BLC</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">BLC FENCING</h3>
+            <div class="hub-card-city">📍 Joondalup WA • 📞 +61 432 185 118</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Team BLC. <strong>Specialty:</strong> Safe Asbestos Fence Removal & Shared Boundary 50/50 Splits</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/blc-fencing/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/blc-fencing/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61432185118?text=G%27day%20Team%20BLC%2C%20saw%20your%204.8%E2%98%85%20Google%20reviews%20for%20BLC%20FENCING%20in%20Joondalup%20WA.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/blc-fencing/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLeZ2WXAN8jlCQZW-u1m8wmfLGtHtqpcP0BBUB32Cr6V9c_wZMmwS2pQzBlC_ToyW8k_evmUvgiaCYqSY8MsFrrCf0HT7M0bsK4lieW00gzIoA983FruPF2Yd8hbO9OghKV2cTRW5W8K8qHB=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 5.0 (29)</span>
+            <span class="hub-installer-badge">Lucas</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">Fenced Right WA</h3>
+            <div class="hub-card-city">📍 Mandurah WA • 📞 +61 430 022 620</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Lucas. <strong>Specialty:</strong> Heavy-Duty Post Installation & High-Wind Engineering</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/fenced-right-wa/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/fenced-right-wa/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61430022620?text=G%27day%20Lucas%2C%20saw%20your%205.0%E2%98%85%20Google%20reviews%20for%20Fenced%20Right%20WA%20in%20Mandurah%20WA.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/fenced-right-wa/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLe6fMCT3E0xX8cyGgtrUR2gnxsoD9y-tmgOkL3BDw1yG3LbBH5LGi9toKx2ZJqJynOVm1Zj06aHIvyUAwDIePlXZZ9u3Hj2R9xq-n4Ja3JgEO4N1NGiZYncONS-Jfn0ma0XAgnKq3qBVhcw=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 4.9 (83)</span>
+            <span class="hub-installer-badge">Jimmy and Alex</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">Fencing Rockingham</h3>
+            <div class="hub-card-city">📍 Mandurah WA • 📞 +61 8 6216 2112</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Jimmy and Alex. <strong>Specialty:</strong> Fast Turnaround Competitive Colorbond & Aftercare Support</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/fencing-rockingham/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/fencing-rockingham/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61862162112?text=G%27day%20Jimmy%20and%20Alex%2C%20saw%20your%204.9%E2%98%85%20Google%20reviews%20for%20Fencing%20Rockingham%20in%20Mandurah%20WA.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/fencing-rockingham/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLftEwi-43toFYTs6UK9f2Ius_OMMxPcnMdzkQpXYfpq46b80wODXybVttaoUiqTYFsbrwkV9Pv94kJ27kLe84wk1X0KpVVk5zyFNd3khb7fc3Vuyesul-mmxg2N2EVUiWjEPb7MKl8kfqDy=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 4.9 (94)</span>
+            <span class="hub-installer-badge">Peter</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">Hanson Fencing & Gate</h3>
+            <div class="hub-card-city">📍 Adelaide SA • 📞 +61 411 338 232</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Peter. <strong>Specialty:</strong> Custom Side Gates, Slat Infill Panels & Full Boundaries</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/hanson-fencing-gate/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/hanson-fencing-gate/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61411338232?text=G%27day%20Peter%2C%20saw%20your%204.9%E2%98%85%20Google%20reviews%20for%20Hanson%20Fencing%20%26%20Gate%20in%20Adelaide%20SA.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/hanson-fencing-gate/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLd05xj5_WCXGXRIYZZJIEurB7KvjLp0PdZwK-tJxEtIqp-DwbMOCLLacNjRALUiQqPFKxUNkiobXrvRo74Yif5LqcbxkH_BRhhFQIiV1Y6SkitX4Qk7LcGMdqfCWCFpYETYzwEbG6Lpa87f=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 5.0 (42)</span>
+            <span class="hub-installer-badge">Peter and Luke (Valente Brothers)</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">Valente Fencing</h3>
+            <div class="hub-card-city">📍 Adelaide SA • 📞 +61 422 309 557</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Peter and Luke (Valente Brothers). <strong>Specialty:</strong> Brother-Built Precision Fencing, Gate Repairs & Spotless Cleanup</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/valente-fencing/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/valente-fencing/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61422309557?text=G%27day%20Peter%20and%20Luke%20%28Valente%20Brothers%29%2C%20saw%20your%205.0%E2%98%85%20Google%20reviews%20for%20Valente%20Fencing%20in%20Adelaide%20SA.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/valente-fencing/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hub-card">
+          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLd4U_I6gyj6B1M6qfCYvOS_K8QUdKNV36aRrejg_LEkP-4TfVEJe03yAVmg0FRVYpsE5VICrQ1zdIo0gEvxu5OUpy_L0-R1vokYzt10y7bHg2tjz2_djuSm5F_LaLPpLt4wNH93ZkGDuy0h=k-no=w600-h400-c');">
+            <span class="hub-rating-badge">★ 5.0 (27)</span>
+            <span class="hub-installer-badge">Shane</span>
+          </div>
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">Guardian fencing</h3>
+            <div class="hub-card-city">📍 Canberra ACT • 📞 +61 405 840 576</div>
+            <p class="hub-card-lead"><strong>Tradesperson:</strong> Shane. <strong>Specialty:</strong> 3-Sided Property Perimeter Colorbond, Black Chainwire & Double Gates</p>
+            
+            <div class="hub-actions">
+              <a href="/fencing/sites/guardian-fencing/" target="_blank" class="hub-btn hub-btn-en">
+                <span>View Live Site (EN)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="/fencing/sites/guardian-fencing/ru.html" target="_blank" class="hub-btn hub-btn-ru">
+                <span>Русская версия (RU)</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/></svg>
+              </a>
+              <a href="https://wa.me/61405840576?text=G%27day%20Shane%2C%20saw%20your%205.0%E2%98%85%20Google%20reviews%20for%20Guardian%20fencing%20in%20Canberra%20ACT.%20Put%20together%20a%20modern%20Colorbond%20%26%20gate%20demo%20landing%20page%20featuring%20your%20actual%20client%20reviews%20and%20past%20projects%3A%20https%3A//zonus.co/fencing/sites/guardian-fencing/%20-%20would%20you%20be%20keen%20to%20turn%20this%20on%20for%20more%20local%20measure%20%26%20quote%20inquiries%3F" target="_blank" class="hub-btn hub-btn-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>WhatsApp Outreach Pitch</span>
+              </a>
+            </div>
+          </div>
+        </div>
     </div>
-
-    <!-- Cards Grid -->
-    <main class="cards-grid" id="cardsGrid">
-
-      <article class="biz-card" data-state="NSW" data-name="underwood fencing and gates sydney nsw">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">1. Underwood Fencing and Gates</h2>
-            <span class="state-badge">NSW</span>
-          </div>
-
-          <div class="status-badge status-no-site">
-            Сайта нет
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 5.0</span>
-            <span>(80 reviews)</span>
-            <span class="review-recency">🕒 3 weeks ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Sydney NSW</p>
-            <p>📞 <strong>+61 418 446 509</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/underwood-fencing-and-gates/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/underwood-fencing-and-gates/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61418446509?text=G%27day%20Underwood%20Fencing%20and%20Gates%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2880%20Google%20reviews%29%20in%20Sydney%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/underwood-fencing-and-gates/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Underwood Fencing and Gates team,
-
-Saw your incredible 5.0★ rating (80 Google reviews) in Sydney NSW — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/underwood-fencing-and-gates/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJT2e1-NuvEmsRQL3qu8pxTiw" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="NSW" data-name="affordable fencing company sydney nsw">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">2. Affordable Fencing Company</h2>
-            <span class="state-badge">NSW</span>
-          </div>
-
-          <div class="status-badge status-no-site">
-            Сайта нет
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 4.9</span>
-            <span>(142 reviews)</span>
-            <span class="review-recency">🕒 3 weeks ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Sydney NSW</p>
-            <p>📞 <strong>+61 417 226 520</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/affordable-fencing-company/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/affordable-fencing-company/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61417226520?text=G%27day%20Affordable%20Fencing%20Company%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%28142%20Google%20reviews%29%20in%20Sydney%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/affordable-fencing-company/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Affordable Fencing Company team,
-
-Saw your incredible 4.9★ rating (142 Google reviews) in Sydney NSW — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/affordable-fencing-company/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJ2YBODTGxEmsRqnFEblNdzK0" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="NSW" data-name="anthony's fencing sydney nsw">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">3. Anthony's Fencing</h2>
-            <span class="state-badge">NSW</span>
-          </div>
-
-          <div class="status-badge status-no-site">
-            Сайта нет
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 4.9</span>
-            <span>(41 reviews)</span>
-            <span class="review-recency">🕒 a month ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Sydney NSW</p>
-            <p>📞 <strong>+61 435 256 220</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/anthonys-fencing/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/anthonys-fencing/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61435256220?text=G%27day%20Anthony%27s%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%2841%20Google%20reviews%29%20in%20Sydney%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/anthonys-fencing/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Anthony&#x27;s Fencing team,
-
-Saw your incredible 4.9★ rating (41 Google reviews) in Sydney NSW — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/anthonys-fencing/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJW-m0aMq7EmsRhgOFBKeWv_w" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="NSW" data-name="highline fencing parramatta nsw">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">4. Highline Fencing</h2>
-            <span class="state-badge">NSW</span>
-          </div>
-
-          <div class="status-badge status-aggr">
-            Агрегатор (hipages.com.au)
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 5.0</span>
-            <span>(39 reviews)</span>
-            <span class="review-recency">🕒 3 weeks ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Parramatta NSW</p>
-            <p>📞 <strong>+61 403 144 520</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/highline-fencing/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/highline-fencing/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61403144520?text=G%27day%20Highline%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2839%20Google%20reviews%29%20in%20Parramatta%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/highline-fencing/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Highline Fencing team,
-
-Saw your incredible 5.0★ rating (39 Google reviews) in Parramatta NSW — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/highline-fencing/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJ7fh_cd7Gom8RwThbyX12lIg" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="NSW" data-name="diy dale campbelltown nsw">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">5. DIY Dale</h2>
-            <span class="state-badge">NSW</span>
-          </div>
-
-          <div class="status-badge status-no-site">
-            Сайта нет
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 4.8</span>
-            <span>(75 reviews)</span>
-            <span class="review-recency">🕒 3 weeks ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Campbelltown NSW</p>
-            <p>📞 <strong>+61 488 998 399</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/diy-dale/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/diy-dale/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61488998399?text=G%27day%20DIY%20Dale%20team%2C%0A%0ASaw%20your%20incredible%204.8%E2%98%85%20rating%20%2875%20Google%20reviews%29%20in%20Campbelltown%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/diy-dale/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day DIY Dale team,
-
-Saw your incredible 4.8★ rating (75 Google reviews) in Campbelltown NSW — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/diy-dale/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJqa7YXr_vEmsRTdQN-Jdh4yg" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="NSW" data-name="straight arrow projects campbelltown nsw">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">6. STRAIGHT ARROW PROJECTS</h2>
-            <span class="state-badge">NSW</span>
-          </div>
-
-          <div class="status-badge status-no-site">
-            Сайта нет
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 5.0</span>
-            <span>(36 reviews)</span>
-            <span class="review-recency">🕒 2 months ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Campbelltown NSW</p>
-            <p>📞 <strong>+61 490 471 559</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/straight-arrow-projects/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/straight-arrow-projects/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61490471559?text=G%27day%20STRAIGHT%20ARROW%20PROJECTS%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2836%20Google%20reviews%29%20in%20Campbelltown%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/straight-arrow-projects/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day STRAIGHT ARROW PROJECTS team,
-
-Saw your incredible 5.0★ rating (36 Google reviews) in Campbelltown NSW — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/straight-arrow-projects/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJjxyWmEs1ew0R5IKzflc-YWg" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="NSW" data-name="mighty fencing wollongong nsw">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">7. Mighty Fencing</h2>
-            <span class="state-badge">NSW</span>
-          </div>
-
-          <div class="status-badge status-no-site">
-            Сайта нет
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 5.0</span>
-            <span>(57 reviews)</span>
-            <span class="review-recency">🕒 3 months ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Wollongong NSW</p>
-            <p>📞 <strong>+61 401 044 638</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/mighty-fencing/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/mighty-fencing/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61401044638?text=G%27day%20Mighty%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2857%20Google%20reviews%29%20in%20Wollongong%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/mighty-fencing/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Mighty Fencing team,
-
-Saw your incredible 5.0★ rating (57 Google reviews) in Wollongong NSW — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/mighty-fencing/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJQ0kzI2ENE2sRqfDX6Z3xBwI" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="VIC" data-name="tj fencing melbourne vic">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">8. TJ Fencing</h2>
-            <span class="state-badge">VIC</span>
-          </div>
-
-          <div class="status-badge status-fb">
-            Facebook / Instagram (https://www.facebook.com/share/19NnZsXBY9/?mibextid=LQQJ4d)
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 4.9</span>
-            <span>(149 reviews)</span>
-            <span class="review-recency">🕒 3 months ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Melbourne VIC</p>
-            <p>📞 <strong>+61 407 351 849</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/tj-fencing/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/tj-fencing/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61407351849?text=G%27day%20TJ%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%28149%20Google%20reviews%29%20in%20Melbourne%20VIC%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/tj-fencing/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day TJ Fencing team,
-
-Saw your incredible 4.9★ rating (149 Google reviews) in Melbourne VIC — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/tj-fencing/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJM0HaPMv11moR2tWhYWtVaLc" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="VIC" data-name="armstrong fencing and landscaping geelong vic">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">9. Armstrong Fencing and Landscaping</h2>
-            <span class="state-badge">VIC</span>
-          </div>
-
-          <div class="status-badge status-fb">
-            Facebook / Instagram (https://www.facebook.com/share/DbMmEvfPomaDfHzE/?mibextid=LQQJ4d)
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 5.0</span>
-            <span>(53 reviews)</span>
-            <span class="review-recency">🕒 4 months ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Geelong VIC</p>
-            <p>📞 <strong>+61 422 700 055</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/armstrong-fencing-and-landscaping/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/armstrong-fencing-and-landscaping/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61422700055?text=G%27day%20Armstrong%20Fencing%20and%20Landscaping%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2853%20Google%20reviews%29%20in%20Geelong%20VIC%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/armstrong-fencing-and-landscaping/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Armstrong Fencing and Landscaping team,
-
-Saw your incredible 5.0★ rating (53 Google reviews) in Geelong VIC — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/armstrong-fencing-and-landscaping/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJs5Y81AvSBo0RZf7eBhMTa78" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="QLD" data-name="jp fencing & more pty ltd brisbane qld">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">10. JP Fencing & More Pty Ltd</h2>
-            <span class="state-badge">QLD</span>
-          </div>
-
-          <div class="status-badge status-no-site">
-            Сайта нет
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 4.9</span>
-            <span>(74 reviews)</span>
-            <span class="review-recency">🕒 4 months ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Brisbane QLD</p>
-            <p>📞 <strong>+61 415 585 594</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/jp-fencing-more-pty-ltd/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/jp-fencing-more-pty-ltd/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61415585594?text=G%27day%20JP%20Fencing%20%26%20More%20Pty%20Ltd%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%2874%20Google%20reviews%29%20in%20Brisbane%20QLD%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/jp-fencing-more-pty-ltd/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day JP Fencing &amp; More Pty Ltd team,
-
-Saw your incredible 4.9★ rating (74 Google reviews) in Brisbane QLD — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/jp-fencing-more-pty-ltd/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJ0xcHaM21lmsRMOUGSlttNOo" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="QLD" data-name="jd fence masters brisbane qld">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">11. JD Fence Masters</h2>
-            <span class="state-badge">QLD</span>
-          </div>
-
-          <div class="status-badge status-no-site">
-            Сайта нет
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 5.0</span>
-            <span>(156 reviews)</span>
-            <span class="review-recency">🕒 4 weeks ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Brisbane QLD</p>
-            <p>📞 <strong>+61 469 077 580</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/jd-fence-masters/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/jd-fence-masters/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61469077580?text=G%27day%20JD%20Fence%20Masters%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%28156%20Google%20reviews%29%20in%20Brisbane%20QLD%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/jd-fence-masters/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day JD Fence Masters team,
-
-Saw your incredible 5.0★ rating (156 Google reviews) in Brisbane QLD — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/jd-fence-masters/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJVxdDmFNHkWsRelp4xOCrhdQ" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="QLD" data-name="bayside fencing & gates brisbane qld">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">12. Bayside Fencing & Gates</h2>
-            <span class="state-badge">QLD</span>
-          </div>
-
-          <div class="status-badge status-no-site">
-            Сайта нет
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 4.8</span>
-            <span>(23 reviews)</span>
-            <span class="review-recency">🕒 3 months ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Brisbane QLD</p>
-            <p>📞 <strong>+61 401 279 273</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/bayside-fencing-gates/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/bayside-fencing-gates/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61401279273?text=G%27day%20Bayside%20Fencing%20%26%20Gates%20team%2C%0A%0ASaw%20your%20incredible%204.8%E2%98%85%20rating%20%2823%20Google%20reviews%29%20in%20Brisbane%20QLD%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/bayside-fencing-gates/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Bayside Fencing &amp; Gates team,
-
-Saw your incredible 4.8★ rating (23 Google reviews) in Brisbane QLD — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/bayside-fencing-gates/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJRw_0Ff_vk2sRz5MJucoivfA" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="QLD" data-name="hernsley fencing services brisbane qld">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">13. Hernsley Fencing Services</h2>
-            <span class="state-badge">QLD</span>
-          </div>
-
-          <div class="status-badge status-no-site">
-            Сайта нет
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 4.9</span>
-            <span>(80 reviews)</span>
-            <span class="review-recency">🕒 a month ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Brisbane QLD</p>
-            <p>📞 <strong>+61 404 873 373</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/hernsley-fencing-services/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/hernsley-fencing-services/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61404873373?text=G%27day%20Hernsley%20Fencing%20Services%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%2880%20Google%20reviews%29%20in%20Brisbane%20QLD%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/hernsley-fencing-services/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Hernsley Fencing Services team,
-
-Saw your incredible 4.9★ rating (80 Google reviews) in Brisbane QLD — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/hernsley-fencing-services/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJVVWBoaRXkWsRAiITDeY7xdY" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="WA" data-name="sentry fencing joondalup wa">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">14. Sentry Fencing</h2>
-            <span class="state-badge">WA</span>
-          </div>
-
-          <div class="status-badge status-no-site">
-            Сайта нет
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 5.0</span>
-            <span>(38 reviews)</span>
-            <span class="review-recency">🕒 4 weeks ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Joondalup WA</p>
-            <p>📞 <strong>+61 433 791 961</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/sentry-fencing/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/sentry-fencing/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61433791961?text=G%27day%20Sentry%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2838%20Google%20reviews%29%20in%20Joondalup%20WA%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/sentry-fencing/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Sentry Fencing team,
-
-Saw your incredible 5.0★ rating (38 Google reviews) in Joondalup WA — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/sentry-fencing/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJO-kN4wIK1IoRA_txucDmDkI" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="WA" data-name="blc fencing joondalup wa">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">15. BLC FENCING</h2>
-            <span class="state-badge">WA</span>
-          </div>
-
-          <div class="status-badge status-no-site">
-            Сайта нет
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 4.8</span>
-            <span>(44 reviews)</span>
-            <span class="review-recency">🕒 3 months ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Joondalup WA</p>
-            <p>📞 <strong>+61 432 185 118</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/blc-fencing/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/blc-fencing/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61432185118?text=G%27day%20BLC%20FENCING%20team%2C%0A%0ASaw%20your%20incredible%204.8%E2%98%85%20rating%20%2844%20Google%20reviews%29%20in%20Joondalup%20WA%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/blc-fencing/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day BLC FENCING team,
-
-Saw your incredible 4.8★ rating (44 Google reviews) in Joondalup WA — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/blc-fencing/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJvy-4A-lTzSsRnZ_7AQ160H0" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="WA" data-name="fenced right wa mandurah wa">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">16. Fenced Right WA</h2>
-            <span class="state-badge">WA</span>
-          </div>
-
-          <div class="status-badge status-no-site">
-            Сайта нет
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 5.0</span>
-            <span>(29 reviews)</span>
-            <span class="review-recency">🕒 6 days ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Mandurah WA</p>
-            <p>📞 <strong>+61 430 022 620</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/fenced-right-wa/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/fenced-right-wa/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61430022620?text=G%27day%20Fenced%20Right%20WA%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2829%20Google%20reviews%29%20in%20Mandurah%20WA%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/fenced-right-wa/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Fenced Right WA team,
-
-Saw your incredible 5.0★ rating (29 Google reviews) in Mandurah WA — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/fenced-right-wa/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJw-zDeM4xg4wR9jXJCZgCcpc" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="WA" data-name="fencing rockingham mandurah wa">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">17. Fencing Rockingham</h2>
-            <span class="state-badge">WA</span>
-          </div>
-
-          <div class="status-badge status-aggr">
-            Агрегатор (wixsite.com)
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 4.9</span>
-            <span>(83 reviews)</span>
-            <span class="review-recency">🕒 a month ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Mandurah WA</p>
-            <p>📞 <strong>+61 8 6216 2112</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/fencing-rockingham/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/fencing-rockingham/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <span class="btn-action" style="background:#334155; color:#94a3b8; cursor:not-allowed;">Landline</span>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Fencing Rockingham team,
-
-Saw your incredible 4.9★ rating (83 Google reviews) in Mandurah WA — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/fencing-rockingham/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJTY0xTccrcoURA1dRUb4RR-g" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="SA" data-name="hanson fencing & gate adelaide sa">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">18. Hanson Fencing & Gate</h2>
-            <span class="state-badge">SA</span>
-          </div>
-
-          <div class="status-badge status-no-site">
-            Сайта нет
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 4.9</span>
-            <span>(94 reviews)</span>
-            <span class="review-recency">🕒 a month ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Adelaide SA</p>
-            <p>📞 <strong>+61 411 338 232</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/hanson-fencing-gate/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/hanson-fencing-gate/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61411338232?text=G%27day%20Hanson%20Fencing%20%26%20Gate%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%2894%20Google%20reviews%29%20in%20Adelaide%20SA%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/hanson-fencing-gate/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Hanson Fencing &amp; Gate team,
-
-Saw your incredible 4.9★ rating (94 Google reviews) in Adelaide SA — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/hanson-fencing-gate/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJoaNbAzDHsGoREdW7llw_Qw4" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="SA" data-name="valente fencing adelaide sa">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">19. Valente Fencing</h2>
-            <span class="state-badge">SA</span>
-          </div>
-
-          <div class="status-badge status-no-site">
-            Сайта нет
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 5.0</span>
-            <span>(42 reviews)</span>
-            <span class="review-recency">🕒 2 months ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Adelaide SA</p>
-            <p>📞 <strong>+61 422 309 557</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/valente-fencing/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/valente-fencing/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61422309557?text=G%27day%20Valente%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2842%20Google%20reviews%29%20in%20Adelaide%20SA%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/valente-fencing/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Valente Fencing team,
-
-Saw your incredible 5.0★ rating (42 Google reviews) in Adelaide SA — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/valente-fencing/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJM6TG0JrFsGoRxmg35P33a30" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-      <article class="biz-card" data-state="ACT" data-name="guardian fencing canberra act">
-        <div>
-          <div class="card-top">
-            <h2 class="biz-name">20. Guardian fencing</h2>
-            <span class="state-badge">ACT</span>
-          </div>
-
-          <div class="status-badge status-fb">
-            Facebook / Instagram (https://www.facebook.com/profile.php/?id=61571046043885)
-          </div>
-
-          <div class="stats-row">
-            <span class="stars">★ 5.0</span>
-            <span>(27 reviews)</span>
-            <span class="review-recency">🕒 a month ago</span>
-          </div>
-
-          <div class="info-list">
-            <p>📍 Canberra ACT</p>
-            <p>📞 <strong>+61 405 840 576</strong></p>
-          </div>
-        </div>
-
-        <div class="card-actions">
-          <a href="sites/guardian-fencing/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
-          <a href="sites/guardian-fencing/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
-          <a href="https://wa.me/61405840576?text=G%27day%20Guardian%20fencing%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2827%20Google%20reviews%29%20in%20Canberra%20ACT%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/guardian-fencing/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
-          <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Guardian fencing team,
-
-Saw your incredible 5.0★ rating (27 Google reviews) in Canberra ACT — top quality reputation!
-
-Noticed you don&#x27;t have a standalone modern website listed, so you&#x27;re likely losing direct Colorbond &amp; modular fencing jobs to competitors running Google ads.
-
-We built a fast, mobile-ready website concept for your brand with your real reviews and services:
-👉 https://zonus.co/fencing/sites/guardian-fencing/
-
-Zero effort needed on your side. If you like it, we can connect it to your domain in 24 hours.
-
-Worth a quick 60-second look?
-
-Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</button>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJ6ztTKNU2wG8ReFuc7RK9rPw" target="_blank" class="btn-action btn-map">📍 Google Maps</a>
-        </div>
-      </article>
-
-    </main>
-
   </div>
-
-  <div id="toast" class="toast">Pitch message copied to clipboard!</div>
-
-  <script>
-    // Copy Pitch Text to Clipboard
-    function copyPitch(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        const toast = document.getElementById('toast');
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2500);
-      });
-    }
-
-    // Filter by State
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.biz-card');
-    const searchInput = document.getElementById('searchBox');
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        applyFilters();
-      });
-    });
-
-    searchInput.addEventListener('input', applyFilters);
-
-    function applyFilters() {
-      const activeState = document.querySelector('.filter-btn.active').dataset.filter;
-      const searchVal = searchInput.value.toLowerCase().trim();
-
-      cards.forEach(card => {
-        const stateMatch = activeState === 'all' || card.dataset.state === activeState;
-        const nameMatch = card.dataset.name.includes(searchVal);
-        
-        if (stateMatch && nameMatch) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-  </script>
 </body>
 </html>
