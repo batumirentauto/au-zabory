@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "description": "Australian Colorbond & Modular Fencing Demo Sites and Outreach Hub",
   "scripts": {
-    "start": "npx -y serve . -l ${PORT:-3000}"
+    "start": "node server.js"
   }
 }
