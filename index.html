@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
   <title>Australian Fencing Contractors — Live Demo Hub (All 20 Personalized Sites)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,11 +79,21 @@
       box-shadow: 0 10px 24px rgba(0,0,0,0.08);
       border-color: var(--accent);
     }
-    .hub-card-thumb {
-      height: 180px;
-      background-size: cover;
-      background-position: center;
+    .hub-card-thumb-wrap {
       position: relative;
+      height: 180px;
+      background: #E2E8F0;
+      overflow: hidden;
+    }
+    .hub-card-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .hub-card:hover .hub-card-thumb {
+      transform: scale(1.03);
     }
     .hub-rating-badge {
       position: absolute;
@@ -95,6 +106,7 @@
       padding: 4px 10px;
       border-radius: 6px;
       backdrop-filter: blur(4px);
+      z-index: 2;
     }
     .hub-installer-badge {
       position: absolute;
@@ -106,6 +118,7 @@
       font-size: 0.78rem;
       padding: 4px 10px;
       border-radius: 6px;
+      z-index: 2;
     }
     .hub-card-body {
       padding: 22px;
@@ -186,7 +199,8 @@
 
     <div class="hub-grid">
               <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLd05xj5_WCXGXRIYZZJIEurB7KvjLp0PdZwK-tJxEtIqp-DwbMOCLLacNjRALUiQqPFKxUNkiobXrvRo74Yif5LqcbxkH_BRhhFQIiV1Y6SkitX4Qk7LcGMdqfCWCFpYETYzwEbG6Lpa87f=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLd05xj5_WCXGXRIYZZJIEurB7KvjLp0PdZwK-tJxEtIqp-DwbMOCLLacNjRALUiQqPFKxUNkiobXrvRo74Yif5LqcbxkH_BRhhFQIiV1Y6SkitX4Qk7LcGMdqfCWCFpYETYzwEbG6Lpa87f=w600-h400-c" alt="Underwood Fencing and Gates" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 5.0 (80)</span>
             <span class="hub-installer-badge">Max</span>
           </div>
@@ -212,7 +226,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLfDBSip6gGlblchArPkTqMXDeXx13VipQ8fYpWAxoZhDPItgXvC5ujtMqGulFWPu0xJpSaYQKLm-_i0C8qEf0QSef815aikP0rBoPU4mc5irnlLevUKf2hZkKL82sELMfjny5wxkurwx28=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLfDBSip6gGlblchArPkTqMXDeXx13VipQ8fYpWAxoZhDPItgXvC5ujtMqGulFWPu0xJpSaYQKLm-_i0C8qEf0QSef815aikP0rBoPU4mc5irnlLevUKf2hZkKL82sELMfjny5wxkurwx28=w600-h400-c" alt="Affordable Fencing Company" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 4.9 (142)</span>
             <span class="hub-installer-badge">Arthur and Kiri</span>
           </div>
@@ -238,7 +253,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLeRfVYyfVvNHZkoiZuDmUyuTw41GX5kF1YFqzpRbgy6pHzC4Ns6DCL9eMdJTElVOgLCeRnFKsnPd5xAAdt_MfdhctxoAoZsyK9MB-DoWQNI2c_n3zXB_3eu9MwTbb87fuKXoNo6wcRfDCU=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLeRfVYyfVvNHZkoiZuDmUyuTw41GX5kF1YFqzpRbgy6pHzC4Ns6DCL9eMdJTElVOgLCeRnFKsnPd5xAAdt_MfdhctxoAoZsyK9MB-DoWQNI2c_n3zXB_3eu9MwTbb87fuKXoNo6wcRfDCU=w600-h400-c" alt="Anthony's Fencing" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 4.9 (41)</span>
             <span class="hub-installer-badge">Nick</span>
           </div>
@@ -264,7 +280,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLcpKMux06qXQGctamlR-kB7NYKKIClzmyIEqdT7Jhd3khL2X6hmLoPOZ72Z5fZPDVyWFXAKNAmalTE2I76jSPNq0S8HG9v0nKO48HMldMCNgkr8Ew18dhhcteLbYZOyYsODw56cvyF_WH4E=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLcpKMux06qXQGctamlR-kB7NYKKIClzmyIEqdT7Jhd3khL2X6hmLoPOZ72Z5fZPDVyWFXAKNAmalTE2I76jSPNq0S8HG9v0nKO48HMldMCNgkr8Ew18dhhcteLbYZOyYsODw56cvyF_WH4E=w600-h400-c" alt="Highline Fencing" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 5.0 (39)</span>
             <span class="hub-installer-badge">Andrei Petushkov</span>
           </div>
@@ -290,7 +307,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLcAmplx1dn34F1G3BFQaFNkqSxLmQc-BiXdoF1uzGNB3wPDThjfMDS6vkrfe5_8yMAZOmC3RPgK3p1nY2AW5yOzpQpFx7PmMvzdMYOJJkm4D0M7HqqFEM4xCUu9ZnaRYFnkAi5jrLVvvgRH=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLcAmplx1dn34F1G3BFQaFNkqSxLmQc-BiXdoF1uzGNB3wPDThjfMDS6vkrfe5_8yMAZOmC3RPgK3p1nY2AW5yOzpQpFx7PmMvzdMYOJJkm4D0M7HqqFEM4xCUu9ZnaRYFnkAi5jrLVvvgRH=w600-h400-c" alt="DIY Dale" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 4.8 (75)</span>
             <span class="hub-installer-badge">Dale and Allen</span>
           </div>
@@ -316,7 +334,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLdd2e-u9vClbDzE6M9TAuv4WeSSKlQP4kGIi_rp4U6ha3kq2QgIJOZRPYeyPWnH2wngke_vYwmI6pHUILzXg0tTLv-s7QjInGJJ1UCFbyFcujjoyStipSRqDciYWYPnAJWruHAnpk4Gn54=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLdd2e-u9vClbDzE6M9TAuv4WeSSKlQP4kGIi_rp4U6ha3kq2QgIJOZRPYeyPWnH2wngke_vYwmI6pHUILzXg0tTLv-s7QjInGJJ1UCFbyFcujjoyStipSRqDciYWYPnAJWruHAnpk4Gn54=w600-h400-c" alt="STRAIGHT ARROW PROJECTS" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 5.0 (36)</span>
             <span class="hub-installer-badge">Tim</span>
           </div>
@@ -342,7 +361,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLdS5SqJiQQYdNKGJTXD3G2lvBveI-HMXXhY6d6qm2u78mNsrW9bv-piKF8AsYK1S2fl6O7vKAd0KergmJCXmHmajUh-y9z8kMi8kG53_CAtbekAWDc4XaVHPxk_FdhrO8IdIOo0Nj091NM=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLdS5SqJiQQYdNKGJTXD3G2lvBveI-HMXXhY6d6qm2u78mNsrW9bv-piKF8AsYK1S2fl6O7vKAd0KergmJCXmHmajUh-y9z8kMi8kG53_CAtbekAWDc4XaVHPxk_FdhrO8IdIOo0Nj091NM=w600-h400-c" alt="Mighty Fencing" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 5.0 (57)</span>
             <span class="hub-installer-badge">Ota</span>
           </div>
@@ -368,7 +388,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLddBF0bDYJpUuK4Ez5C5ntU3_IEjbOGw3r3DbZZdSP4UgB5iw3YRDC9Hkqy_qEW8i8-_wBNZrFadzgr1qHbVSBvdASwDuerAe-QDfE-ZsNDw4qFxiqiaoX6XboNeeONqffebYvOuepP1fI=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLddBF0bDYJpUuK4Ez5C5ntU3_IEjbOGw3r3DbZZdSP4UgB5iw3YRDC9Hkqy_qEW8i8-_wBNZrFadzgr1qHbVSBvdASwDuerAe-QDfE-ZsNDw4qFxiqiaoX6XboNeeONqffebYvOuepP1fI=w600-h400-c" alt="TJ Fencing" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 4.9 (149)</span>
             <span class="hub-installer-badge">Travis (TJ)</span>
           </div>
@@ -394,7 +415,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLfEJbzLYGQKQyS5OwYD_2zbZhQKqqdZ__fH0qx8eGCkVvIh6dxwB1HsamUtKz6I4mVgmCLiCTQgCOfKPYhRLhXHPkXCHvQMnwnJRAGmFOMT5jY27jLGNcMtdic-z1w9lGeP0kmFR_VoWmEH=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLfEJbzLYGQKQyS5OwYD_2zbZhQKqqdZ__fH0qx8eGCkVvIh6dxwB1HsamUtKz6I4mVgmCLiCTQgCOfKPYhRLhXHPkXCHvQMnwnJRAGmFOMT5jY27jLGNcMtdic-z1w9lGeP0kmFR_VoWmEH=w600-h400-c" alt="Armstrong Fencing and Landscaping" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 5.0 (53)</span>
             <span class="hub-installer-badge">Armstrong Team</span>
           </div>
@@ -420,7 +442,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLcMkimr5O_kvBUELuVAoIsoNtrxQmy5WTksSxR4sqNtIoBdlxCL4OF7WbgPwFZaGbffbu1IYj7yMsXdaecN2rRXUwzXQCtF5NkesPsi4NJ1VxAVNJdXr6JGH-2FRVUXO--BGjmukQ=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLcMkimr5O_kvBUELuVAoIsoNtrxQmy5WTksSxR4sqNtIoBdlxCL4OF7WbgPwFZaGbffbu1IYj7yMsXdaecN2rRXUwzXQCtF5NkesPsi4NJ1VxAVNJdXr6JGH-2FRVUXO--BGjmukQ=w600-h400-c" alt="JP Fencing & More Pty Ltd" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 4.9 (74)</span>
             <span class="hub-installer-badge">JP</span>
           </div>
@@ -446,7 +469,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLe-wiPUnxdusoDA1Jh95EuOct_iDQbNLok8x9xUejCppk3ycjw9g9FAbL2vpUrWVy4m3QUKhcR4durnkRI2z32PqdVt-StoV8Tmuu5ww0X8CP5nvmODQl9_A9va29uOVfMXZqa-Epq2eZwb=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLe-wiPUnxdusoDA1Jh95EuOct_iDQbNLok8x9xUejCppk3ycjw9g9FAbL2vpUrWVy4m3QUKhcR4durnkRI2z32PqdVt-StoV8Tmuu5ww0X8CP5nvmODQl9_A9va29uOVfMXZqa-Epq2eZwb=w600-h400-c" alt="JD Fence Masters" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 5.0 (156)</span>
             <span class="hub-installer-badge">JD</span>
           </div>
@@ -472,7 +496,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLcyx7GoOhVhZFse79IClUc8SLGQTI09AY7q-h_y7wkS0Rb4g2F6wnoxAPwMliQ9uFIJD9pLozk8W9BSx6H2jchEai1Y8q9FPuTaYHobZS95vwnrOz93z8M8Kjf_lHeSNRVBS9FykSgJlEM6=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLcyx7GoOhVhZFse79IClUc8SLGQTI09AY7q-h_y7wkS0Rb4g2F6wnoxAPwMliQ9uFIJD9pLozk8W9BSx6H2jchEai1Y8q9FPuTaYHobZS95vwnrOz93z8M8Kjf_lHeSNRVBS9FykSgJlEM6=w600-h400-c" alt="Bayside Fencing & Gates" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 4.8 (23)</span>
             <span class="hub-installer-badge">Michael</span>
           </div>
@@ -498,7 +523,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLeW5o2fGGBflZkQXtK1OYrbmL0uq7xiZRJg2yOwECfUHhNGmlCpeTs7jiuDBsjqp-CMskvM68JQGgwpAf2ZQZ0z3oGcH-D5LAXsGiU0BvfesRnrbPns9r_notpZW-fZ0ZBsev0M9Huyabg5=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLeW5o2fGGBflZkQXtK1OYrbmL0uq7xiZRJg2yOwECfUHhNGmlCpeTs7jiuDBsjqp-CMskvM68JQGgwpAf2ZQZ0z3oGcH-D5LAXsGiU0BvfesRnrbPns9r_notpZW-fZ0ZBsev0M9Huyabg5=w600-h400-c" alt="Hernsley Fencing Services" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 4.9 (80)</span>
             <span class="hub-installer-badge">Tony</span>
           </div>
@@ -524,7 +550,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLcxz6gNdS17v1XACxrjKjA33d9Q974vfy4IdV4UT0vusBYoLbMU1c3-9VicZKOpGRd5bTi0Lg4eciMVNzqT6S5Q7Bc-bx0joOg_a3FhWw7ov6oINanH__8mJLVbEw-OwM00s-VyRv3CIW4=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLcxz6gNdS17v1XACxrjKjA33d9Q974vfy4IdV4UT0vusBYoLbMU1c3-9VicZKOpGRd5bTi0Lg4eciMVNzqT6S5Q7Bc-bx0joOg_a3FhWw7ov6oINanH__8mJLVbEw-OwM00s-VyRv3CIW4=w600-h400-c" alt="Sentry Fencing" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 5.0 (38)</span>
             <span class="hub-installer-badge">Matt</span>
           </div>
@@ -550,7 +577,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLeqnCVWj9NaG0NvhxcTgL8pTphcIsiWonfCH3d7VtptgXAvpdetkc3N7EgCFr4YS8xPlBYM-PPfzESecc4ptAN4uN6D6Nq5m76AIIR0HccEucFKIAWToG06F6dYPIz2gV6rkJ3Viw=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLeqnCVWj9NaG0NvhxcTgL8pTphcIsiWonfCH3d7VtptgXAvpdetkc3N7EgCFr4YS8xPlBYM-PPfzESecc4ptAN4uN6D6Nq5m76AIIR0HccEucFKIAWToG06F6dYPIz2gV6rkJ3Viw=w600-h400-c" alt="BLC FENCING" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 4.8 (44)</span>
             <span class="hub-installer-badge">Team BLC</span>
           </div>
@@ -576,7 +604,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLeZ2WXAN8jlCQZW-u1m8wmfLGtHtqpcP0BBUB32Cr6V9c_wZMmwS2pQzBlC_ToyW8k_evmUvgiaCYqSY8MsFrrCf0HT7M0bsK4lieW00gzIoA983FruPF2Yd8hbO9OghKV2cTRW5W8K8qHB=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLeZ2WXAN8jlCQZW-u1m8wmfLGtHtqpcP0BBUB32Cr6V9c_wZMmwS2pQzBlC_ToyW8k_evmUvgiaCYqSY8MsFrrCf0HT7M0bsK4lieW00gzIoA983FruPF2Yd8hbO9OghKV2cTRW5W8K8qHB=w600-h400-c" alt="Fenced Right WA" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 5.0 (29)</span>
             <span class="hub-installer-badge">Lucas</span>
           </div>
@@ -602,7 +631,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLe6fMCT3E0xX8cyGgtrUR2gnxsoD9y-tmgOkL3BDw1yG3LbBH5LGi9toKx2ZJqJynOVm1Zj06aHIvyUAwDIePlXZZ9u3Hj2R9xq-n4Ja3JgEO4N1NGiZYncONS-Jfn0ma0XAgnKq3qBVhcw=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLe6fMCT3E0xX8cyGgtrUR2gnxsoD9y-tmgOkL3BDw1yG3LbBH5LGi9toKx2ZJqJynOVm1Zj06aHIvyUAwDIePlXZZ9u3Hj2R9xq-n4Ja3JgEO4N1NGiZYncONS-Jfn0ma0XAgnKq3qBVhcw=w600-h400-c" alt="Fencing Rockingham" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 4.9 (83)</span>
             <span class="hub-installer-badge">Jimmy and Alex</span>
           </div>
@@ -628,7 +658,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLftEwi-43toFYTs6UK9f2Ius_OMMxPcnMdzkQpXYfpq46b80wODXybVttaoUiqTYFsbrwkV9Pv94kJ27kLe84wk1X0KpVVk5zyFNd3khb7fc3Vuyesul-mmxg2N2EVUiWjEPb7MKl8kfqDy=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLftEwi-43toFYTs6UK9f2Ius_OMMxPcnMdzkQpXYfpq46b80wODXybVttaoUiqTYFsbrwkV9Pv94kJ27kLe84wk1X0KpVVk5zyFNd3khb7fc3Vuyesul-mmxg2N2EVUiWjEPb7MKl8kfqDy=w600-h400-c" alt="Hanson Fencing & Gate" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 4.9 (94)</span>
             <span class="hub-installer-badge">Peter</span>
           </div>
@@ -654,7 +685,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLd05xj5_WCXGXRIYZZJIEurB7KvjLp0PdZwK-tJxEtIqp-DwbMOCLLacNjRALUiQqPFKxUNkiobXrvRo74Yif5LqcbxkH_BRhhFQIiV1Y6SkitX4Qk7LcGMdqfCWCFpYETYzwEbG6Lpa87f=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLd05xj5_WCXGXRIYZZJIEurB7KvjLp0PdZwK-tJxEtIqp-DwbMOCLLacNjRALUiQqPFKxUNkiobXrvRo74Yif5LqcbxkH_BRhhFQIiV1Y6SkitX4Qk7LcGMdqfCWCFpYETYzwEbG6Lpa87f=w600-h400-c" alt="Valente Fencing" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 5.0 (42)</span>
             <span class="hub-installer-badge">Peter and Luke (Valente Brothers)</span>
           </div>
@@ -680,7 +712,8 @@
           </div>
         </div>
         <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLd4U_I6gyj6B1M6qfCYvOS_K8QUdKNV36aRrejg_LEkP-4TfVEJe03yAVmg0FRVYpsE5VICrQ1zdIo0gEvxu5OUpy_L0-R1vokYzt10y7bHg2tjz2_djuSm5F_LaLPpLt4wNH93ZkGDuy0h=k-no=w600-h400-c');">
+          <div class="hub-card-thumb-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLd4U_I6gyj6B1M6qfCYvOS_K8QUdKNV36aRrejg_LEkP-4TfVEJe03yAVmg0FRVYpsE5VICrQ1zdIo0gEvxu5OUpy_L0-R1vokYzt10y7bHg2tjz2_djuSm5F_LaLPpLt4wNH93ZkGDuy0h=w600-h400-c" alt="Guardian fencing" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ 5.0 (27)</span>
             <span class="hub-installer-badge">Shane</span>
           </div>

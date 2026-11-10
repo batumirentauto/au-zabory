@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
   <title>TJ Fencing | Заборы Colorbond® и модульные стены Melbourne VIC — Смета онлайн</title>
   <meta name="description" content="TJ Fencing: надежные заборы Colorbond и модульные стены в Melbourne VIC. Рейтинг 4.9★ (149 отзывов в Google). Связь напрямую с мастером (Трэвис (TJ)) по тел. +61 407 351 849.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -339,11 +340,21 @@
       transform: translateY(-4px);
       box-shadow: var(--shadow-md);
     }
-    .service-img {
-      height: 220px;
-      background-size: cover;
-      background-position: center;
+    .service-img-wrap {
       position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: #E2E8F0;
+    }
+    .service-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover .service-img {
+      transform: scale(1.03);
     }
     .service-badge {
       position: absolute;
@@ -356,6 +367,7 @@
       padding: 5px 12px;
       border-radius: 20px;
       backdrop-filter: blur(4px);
+      z-index: 2;
     }
     .service-body {
       padding: 24px;
@@ -400,27 +412,37 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }
-    .gallery-item {
+    .gallery-item-wrap {
       height: 240px;
       border-radius: var(--radius);
-      background-size: cover;
-      background-position: center;
       position: relative;
       box-shadow: var(--shadow-sm);
       overflow: hidden;
       border: 1px solid var(--border);
+      background: #E2E8F0;
+    }
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item-wrap:hover .gallery-img {
+      transform: scale(1.04);
     }
     .gallery-badge {
       position: absolute;
       bottom: 12px;
       left: 12px;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.75);
       color: #fff;
       font-size: 0.75rem;
       font-weight: 600;
       padding: 4px 10px;
       border-radius: 6px;
       backdrop-filter: blur(4px);
+      z-index: 2;
     }
 
     /* Colours Grid */
@@ -707,7 +729,8 @@
       <div class="services-grid">
         <!-- Service 1 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLddBF0bDYJpUuK4Ez5C5ntU3_IEjbOGw3r3DbZZdSP4UgB5iw3YRDC9Hkqy_qEW8i8-_wBNZrFadzgr1qHbVSBvdASwDuerAe-QDfE-ZsNDw4qFxiqiaoX6XboNeeONqffebYvOuepP1fI=k-no=w800-h550-c');">
+          <div class="service-img-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLddBF0bDYJpUuK4Ez5C5ntU3_IEjbOGw3r3DbZZdSP4UgB5iw3YRDC9Hkqy_qEW8i8-_wBNZrFadzgr1qHbVSBvdASwDuerAe-QDfE-ZsNDw4qFxiqiaoX6XboNeeONqffebYvOuepP1fI=w800-h550-c" alt="Монтаж Colorbond® в скальном и тяжелом грунте" class="service-img" loading="lazy">
             <span class="service-badge">Мощная техника</span>
           </div>
           <div class="service-body">
@@ -722,7 +745,8 @@
 
         <!-- Service 2 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLcNU-W6qb3GQUedMDORYWBs9FETuVno5LlvG0HqdeRrf4KZsml_R5ZW7M_FQNeJ3X1HU7LW9SYckYsh7jaVmGp58kDS7aPnyRcWKePjKrIQdSWYyCvV8kUwbriHVDc-zeGq7U8C9HlX1jL9=k-no=w800-h550-c');">
+          <div class="service-img-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLcNU-W6qb3GQUedMDORYWBs9FETuVno5LlvG0HqdeRrf4KZsml_R5ZW7M_FQNeJ3X1HU7LW9SYckYsh7jaVmGp58kDS7aPnyRcWKePjKrIQdSWYyCvV8kUwbriHVDc-zeGq7U8C9HlX1jL9=w800-h550-c" alt="Приватные заборы высотой 1.8м и 2.1м" class="service-img" loading="lazy">
             <span class="service-badge">Полный комфорт</span>
           </div>
           <div class="service-body">
@@ -737,7 +761,8 @@
 
         <!-- Service 3 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLdEwFm_WRdGJ9MKJ6B1BZunSNpqcIoWZpFhMqNUvVfwxDIUu7C0GAuIqbhilswFdbP3bsCY0BJUASeW-FFvmE9bI7iTz0dtu5QHesxkEDwbpiONwQSn0ifgKXJjb1L-SkoQBnh2mzz2mii8=k-no=w800-h550-c');">
+          <div class="service-img-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLdEwFm_WRdGJ9MKJ6B1BZunSNpqcIoWZpFhMqNUvVfwxDIUu7C0GAuIqbhilswFdbP3bsCY0BJUASeW-FFvmE9bI7iTz0dtu5QHesxkEDwbpiONwQSn0ifgKXJjb1L-SkoQBnh2mzz2mii8=w800-h550-c" alt="Ворота на жестком стальном каркасе" class="service-img" loading="lazy">
             <span class="service-badge">Усиленный профиль</span>
           </div>
           <div class="service-body">
@@ -759,20 +784,24 @@
       <div class="section-header">
         <div class="section-kicker">РЕАЛЬНЫЕ ВЫПОЛНЕННЫЕ ОБЪЕКТЫ</div>
         <h2 class="section-title">Реальные работы TJ Fencing</h2>
-        <p class="section-sub">Все фотографии ниже — реальные заборы и ворота, установленные мастером (Трэвис (TJ)) и нашей бригадой.</p>
+        <p class="section-sub">Все фотографии ниже — реальные заборы и ворота, установленные мастером (Трэвис (TJ)) и нашей бригадой в Melbourne VIC.</p>
       </div>
 
       <div class="gallery-grid">
-                  <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLcNU-W6qb3GQUedMDORYWBs9FETuVno5LlvG0HqdeRrf4KZsml_R5ZW7M_FQNeJ3X1HU7LW9SYckYsh7jaVmGp58kDS7aPnyRcWKePjKrIQdSWYyCvV8kUwbriHVDc-zeGq7U8C9HlX1jL9=k-no=w800-h600-c');">
+                  <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLcNU-W6qb3GQUedMDORYWBs9FETuVno5LlvG0HqdeRrf4KZsml_R5ZW7M_FQNeJ3X1HU7LW9SYckYsh7jaVmGp58kDS7aPnyRcWKePjKrIQdSWYyCvV8kUwbriHVDc-zeGq7U8C9HlX1jL9=w800-h600-c" alt="Забор Colorbond®" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Забор Colorbond®</span>
           </div>
-          <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLdEwFm_WRdGJ9MKJ6B1BZunSNpqcIoWZpFhMqNUvVfwxDIUu7C0GAuIqbhilswFdbP3bsCY0BJUASeW-FFvmE9bI7iTz0dtu5QHesxkEDwbpiONwQSn0ifgKXJjb1L-SkoQBnh2mzz2mii8=k-no=w800-h600-c');">
+          <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLdEwFm_WRdGJ9MKJ6B1BZunSNpqcIoWZpFhMqNUvVfwxDIUu7C0GAuIqbhilswFdbP3bsCY0BJUASeW-FFvmE9bI7iTz0dtu5QHesxkEDwbpiONwQSn0ifgKXJjb1L-SkoQBnh2mzz2mii8=w800-h600-c" alt="Ступенчатый цоколь" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Ступенчатый цоколь</span>
           </div>
-          <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLfo7PuUEw4TFIBaXLIC_JljC-gERgCjTJuPtz5-K3sc-pUNhDOh9_PnpZBUM7ymB94zA0aqY5ibBZtLICY-y32vXTLJhJb0r0pbso2Y1IYR1gZHeBlcQP_vGSuFXAQNP7D1N0OEJwSBILoP=k-no=w800-h600-c');">
+          <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLfo7PuUEw4TFIBaXLIC_JljC-gERgCjTJuPtz5-K3sc-pUNhDOh9_PnpZBUM7ymB94zA0aqY5ibBZtLICY-y32vXTLJhJb0r0pbso2Y1IYR1gZHeBlcQP_vGSuFXAQNP7D1N0OEJwSBILoP=w800-h600-c" alt="Калитка с замком" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Калитка с замком</span>
           </div>
-          <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLe674jsrErhCjkTo6UI_MTxQu888t9GWrDSxZ_5q3N0_EE1kt8pVOnakcbfn1LPGUgMqW8mSRlWx2X25RMM_RD0a_GIdLPj8V-ITScGKOCtbGgj3NTZaldoiXyecJauOARLRoB17DkwhEM=k-no=w800-h600-c');">
+          <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLe674jsrErhCjkTo6UI_MTxQu888t9GWrDSxZ_5q3N0_EE1kt8pVOnakcbfn1LPGUgMqW8mSRlWx2X25RMM_RD0a_GIdLPj8V-ITScGKOCtbGgj3NTZaldoiXyecJauOARLRoB17DkwhEM=w800-h600-c" alt="Приватный экран" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Приватный экран</span>
           </div>
       </div>

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
   <title>Anthony&#x27;s Fencing | 4.9★ Colorbond &amp; Modular Fencing Specialists Sydney NSW</title>
   <meta name="description" content="Anthony&#x27;s Fencing: Sydney NSW&#x27;s trusted Colorbond and modular fencing contractors. Rated 4.9 Stars with 41 Google reviews. Speak directly with Nick on +61 435 256 220 for a free measure &amp; quote.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -339,11 +340,21 @@
       transform: translateY(-4px);
       box-shadow: var(--shadow-md);
     }
-    .service-img {
-      height: 220px;
-      background-size: cover;
-      background-position: center;
+    .service-img-wrap {
       position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: #E2E8F0;
+    }
+    .service-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover .service-img {
+      transform: scale(1.03);
     }
     .service-badge {
       position: absolute;
@@ -356,6 +367,7 @@
       padding: 5px 12px;
       border-radius: 20px;
       backdrop-filter: blur(4px);
+      z-index: 2;
     }
     .service-body {
       padding: 24px;
@@ -400,27 +412,37 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }
-    .gallery-item {
+    .gallery-item-wrap {
       height: 240px;
       border-radius: var(--radius);
-      background-size: cover;
-      background-position: center;
       position: relative;
       box-shadow: var(--shadow-sm);
       overflow: hidden;
       border: 1px solid var(--border);
+      background: #E2E8F0;
+    }
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item-wrap:hover .gallery-img {
+      transform: scale(1.04);
     }
     .gallery-badge {
       position: absolute;
       bottom: 12px;
       left: 12px;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.75);
       color: #fff;
       font-size: 0.75rem;
       font-weight: 600;
       padding: 4px 10px;
       border-radius: 6px;
       backdrop-filter: blur(4px);
+      z-index: 2;
     }
 
     /* Colours Grid */
@@ -707,7 +729,8 @@
       <div class="services-grid">
         <!-- Service 1 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLeRfVYyfVvNHZkoiZuDmUyuTw41GX5kF1YFqzpRbgy6pHzC4Ns6DCL9eMdJTElVOgLCeRnFKsnPd5xAAdt_MfdhctxoAoZsyK9MB-DoWQNI2c_n3zXB_3eu9MwTbb87fuKXoNo6wcRfDCU=k-no=w800-h550-c');">
+          <div class="service-img-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLeRfVYyfVvNHZkoiZuDmUyuTw41GX5kF1YFqzpRbgy6pHzC4Ns6DCL9eMdJTElVOgLCeRnFKsnPd5xAAdt_MfdhctxoAoZsyK9MB-DoWQNI2c_n3zXB_3eu9MwTbb87fuKXoNo6wcRfDCU=w800-h550-c" alt="Designer Feature Fencing" class="service-img" loading="lazy">
             <span class="service-badge">Architectural</span>
           </div>
           <div class="service-body">
@@ -722,7 +745,8 @@
 
         <!-- Service 2 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLccfIaJJnHcVhuTht5V_oEsZx3LKFhWGXl-2gETJS6SI8pHJJh5CtGUmPmlc0IdrOFz2rkxXmytenCJlwxJBbNY3-A6jpqLx_SxfQkqVEZmpjg8La8zTGqvapQb4EpObXjDFpdJlw=k-no=w800-h550-c');">
+          <div class="service-img-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLccfIaJJnHcVhuTht5V_oEsZx3LKFhWGXl-2gETJS6SI8pHJJh5CtGUmPmlc0IdrOFz2rkxXmytenCJlwxJBbNY3-A6jpqLx_SxfQkqVEZmpjg8La8zTGqvapQb4EpObXjDFpdJlw=w800-h550-c" alt="Boundary Colorbond® Systems" class="service-img" loading="lazy">
             <span class="service-badge">Heavy Duty</span>
           </div>
           <div class="service-body">
@@ -737,7 +761,8 @@
 
         <!-- Service 3 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLfgr2uqgZbh1oLeGKCQpop6rnAYR1DOZsUT_JxmxJbh9oryWLqog_WiRFGQ9IDiv50JAi4SAVowowKtekeSZIxmMA7LvJ715oyK_eUNsB_FitM03P0QSXL-mJh2SIAfjXGp8TmB=k-no=w800-h550-c');">
+          <div class="service-img-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLfgr2uqgZbh1oLeGKCQpop6rnAYR1DOZsUT_JxmxJbh9oryWLqog_WiRFGQ9IDiv50JAi4SAVowowKtekeSZIxmMA7LvJ715oyK_eUNsB_FitM03P0QSXL-mJh2SIAfjXGp8TmB=w800-h550-c" alt="Custom Security Access Gates" class="service-img" loading="lazy">
             <span class="service-badge">Custom Built</span>
           </div>
           <div class="service-body">
@@ -759,20 +784,24 @@
       <div class="section-header">
         <div class="section-kicker">RECENT COMPLETED PROJECTS</div>
         <h2 class="section-title">Real Work Built by Anthony's Fencing</h2>
-        <p class="section-sub">Every photo below is from an actual residential installation completed by Nick and our local installation crew.</p>
+        <p class="section-sub">Every photo below is an actual completed job by Nick and our team in Sydney NSW.</p>
       </div>
 
       <div class="gallery-grid">
-                  <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLccfIaJJnHcVhuTht5V_oEsZx3LKFhWGXl-2gETJS6SI8pHJJh5CtGUmPmlc0IdrOFz2rkxXmytenCJlwxJBbNY3-A6jpqLx_SxfQkqVEZmpjg8La8zTGqvapQb4EpObXjDFpdJlw=k-no=w800-h600-c');">
+                  <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLccfIaJJnHcVhuTht5V_oEsZx3LKFhWGXl-2gETJS6SI8pHJJh5CtGUmPmlc0IdrOFz2rkxXmytenCJlwxJBbNY3-A6jpqLx_SxfQkqVEZmpjg8La8zTGqvapQb4EpObXjDFpdJlw=w800-h600-c" alt="Colorbond® Boundary" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Colorbond® Boundary</span>
           </div>
-          <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLfgr2uqgZbh1oLeGKCQpop6rnAYR1DOZsUT_JxmxJbh9oryWLqog_WiRFGQ9IDiv50JAi4SAVowowKtekeSZIxmMA7LvJ715oyK_eUNsB_FitM03P0QSXL-mJh2SIAfjXGp8TmB=k-no=w800-h600-c');">
+          <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLfgr2uqgZbh1oLeGKCQpop6rnAYR1DOZsUT_JxmxJbh9oryWLqog_WiRFGQ9IDiv50JAi4SAVowowKtekeSZIxmMA7LvJ715oyK_eUNsB_FitM03P0QSXL-mJh2SIAfjXGp8TmB=w800-h600-c" alt="Stepped Plinth Panel" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Stepped Plinth Panel</span>
           </div>
-          <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLd6qiQXuP1e3daq7VTc2G5Tso9JDLpkjseSDA_lK-bjDm19Uk0tazE1iZvrqfjoEWjACcSlZNajC2ArO1jyQD42TZh1MEsSPHSmo31qYQWUWyi4QQxUbd4_TAkcDKDYiQ_W8Q=k-no=w800-h600-c');">
+          <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLd6qiQXuP1e3daq7VTc2G5Tso9JDLpkjseSDA_lK-bjDm19Uk0tazE1iZvrqfjoEWjACcSlZNajC2ArO1jyQD42TZh1MEsSPHSmo31qYQWUWyi4QQxUbd4_TAkcDKDYiQ_W8Q=w800-h600-c" alt="Custom Access Gate" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Custom Access Gate</span>
           </div>
-          <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLdg7tCyW4492IB-srRAbGGr7uK4GZK-ZIq-JW_YOezURUl7b9o4XITCwUji0MVjH_t2Wr6653sKO1gTCdH01tY1J_FNrtC_l2OzbW2B_huKq4Xt5Bq-YL_YO2tkpAH5bcy1w-3X=k-no=w800-h600-c');">
+          <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLdg7tCyW4492IB-srRAbGGr7uK4GZK-ZIq-JW_YOezURUl7b9o4XITCwUji0MVjH_t2Wr6653sKO1gTCdH01tY1J_FNrtC_l2OzbW2B_huKq4Xt5Bq-YL_YO2tkpAH5bcy1w-3X=w800-h600-c" alt="Feature Privacy Fence" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Feature Privacy Fence</span>
           </div>
       </div>

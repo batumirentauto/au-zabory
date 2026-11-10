@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
   <title>STRAIGHT ARROW PROJECTS | 5.0★ Colorbond &amp; Modular Fencing Specialists Campbelltown NSW</title>
   <meta name="description" content="STRAIGHT ARROW PROJECTS: Campbelltown NSW&#x27;s trusted Colorbond and modular fencing contractors. Rated 5.0 Stars with 36 Google reviews. Speak directly with Tim on +61 490 471 559 for a free measure &amp; quote.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -339,11 +340,21 @@
       transform: translateY(-4px);
       box-shadow: var(--shadow-md);
     }
-    .service-img {
-      height: 220px;
-      background-size: cover;
-      background-position: center;
+    .service-img-wrap {
       position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: #E2E8F0;
+    }
+    .service-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover .service-img {
+      transform: scale(1.03);
     }
     .service-badge {
       position: absolute;
@@ -356,6 +367,7 @@
       padding: 5px 12px;
       border-radius: 20px;
       backdrop-filter: blur(4px);
+      z-index: 2;
     }
     .service-body {
       padding: 24px;
@@ -400,27 +412,37 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }
-    .gallery-item {
+    .gallery-item-wrap {
       height: 240px;
       border-radius: var(--radius);
-      background-size: cover;
-      background-position: center;
       position: relative;
       box-shadow: var(--shadow-sm);
       overflow: hidden;
       border: 1px solid var(--border);
+      background: #E2E8F0;
+    }
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item-wrap:hover .gallery-img {
+      transform: scale(1.04);
     }
     .gallery-badge {
       position: absolute;
       bottom: 12px;
       left: 12px;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.75);
       color: #fff;
       font-size: 0.75rem;
       font-weight: 600;
       padding: 4px 10px;
       border-radius: 6px;
       backdrop-filter: blur(4px);
+      z-index: 2;
     }
 
     /* Colours Grid */
@@ -707,7 +729,8 @@
       <div class="services-grid">
         <!-- Service 1 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLdd2e-u9vClbDzE6M9TAuv4WeSSKlQP4kGIi_rp4U6ha3kq2QgIJOZRPYeyPWnH2wngke_vYwmI6pHUILzXg0tTLv-s7QjInGJJ1UCFbyFcujjoyStipSRqDciYWYPnAJWruHAnpk4Gn54=k-no=w800-h550-c');">
+          <div class="service-img-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLdd2e-u9vClbDzE6M9TAuv4WeSSKlQP4kGIi_rp4U6ha3kq2QgIJOZRPYeyPWnH2wngke_vYwmI6pHUILzXg0tTLv-s7QjInGJJ1UCFbyFcujjoyStipSRqDciYWYPnAJWruHAnpk4Gn54=w800-h550-c" alt="Integrated Retaining Wall & Fencing" class="service-img" loading="lazy">
             <span class="service-badge">All-in-One</span>
           </div>
           <div class="service-body">
@@ -722,7 +745,8 @@
 
         <!-- Service 2 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLehzE86RPjToyeCu4hmddk4yasg9hr0RPcHEUI3CnxhbRLxVyHlYNNVyANtvA9WMLQmIt0AACQcsPz4IGb2hHhBzpV3f_ir1EUc1glkfFNJUEvIz0MTSxyudgIY9rP5kE8bwCQJkvsqGCc=k-no=w800-h550-c');">
+          <div class="service-img-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLehzE86RPjToyeCu4hmddk4yasg9hr0RPcHEUI3CnxhbRLxVyHlYNNVyANtvA9WMLQmIt0AACQcsPz4IGb2hHhBzpV3f_ir1EUc1glkfFNJUEvIz0MTSxyudgIY9rP5kE8bwCQJkvsqGCc=w800-h550-c" alt="Colorbond® Residential Perimeter Fencing" class="service-img" loading="lazy">
             <span class="service-badge">Arrow Straight</span>
           </div>
           <div class="service-body">
@@ -737,7 +761,8 @@
 
         <!-- Service 3 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLfXjtn8shKzixGebJ1R-UYFj0zZTHI-PLyorOjJw_wMCrV8bBpTaeTbkt2rZCcPElvxkjmRRtXQfAWas9UUifUGcNJCAO0ZCNViMc6jkHbTnh7OfauZtGCHyKatdebHw5teIjQvKKU1QTxJ=k-no=w800-h550-c');">
+          <div class="service-img-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLfXjtn8shKzixGebJ1R-UYFj0zZTHI-PLyorOjJw_wMCrV8bBpTaeTbkt2rZCcPElvxkjmRRtXQfAWas9UUifUGcNJCAO0ZCNViMc6jkHbTnh7OfauZtGCHyKatdebHw5teIjQvKKU1QTxJ=w800-h550-c" alt="Heavy-Duty Gates & Landscape Prep" class="service-img" loading="lazy">
             <span class="service-badge">Turnkey</span>
           </div>
           <div class="service-body">
@@ -759,20 +784,24 @@
       <div class="section-header">
         <div class="section-kicker">RECENT COMPLETED PROJECTS</div>
         <h2 class="section-title">Real Work Built by STRAIGHT ARROW PROJECTS</h2>
-        <p class="section-sub">Every photo below is from an actual residential installation completed by Tim and our local installation crew.</p>
+        <p class="section-sub">Every photo below is an actual completed job by Tim and our team in Campbelltown NSW.</p>
       </div>
 
       <div class="gallery-grid">
-                  <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLehzE86RPjToyeCu4hmddk4yasg9hr0RPcHEUI3CnxhbRLxVyHlYNNVyANtvA9WMLQmIt0AACQcsPz4IGb2hHhBzpV3f_ir1EUc1glkfFNJUEvIz0MTSxyudgIY9rP5kE8bwCQJkvsqGCc=k-no=w800-h600-c');">
+                  <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLehzE86RPjToyeCu4hmddk4yasg9hr0RPcHEUI3CnxhbRLxVyHlYNNVyANtvA9WMLQmIt0AACQcsPz4IGb2hHhBzpV3f_ir1EUc1glkfFNJUEvIz0MTSxyudgIY9rP5kE8bwCQJkvsqGCc=w800-h600-c" alt="Colorbond® Boundary" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Colorbond® Boundary</span>
           </div>
-          <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLfXjtn8shKzixGebJ1R-UYFj0zZTHI-PLyorOjJw_wMCrV8bBpTaeTbkt2rZCcPElvxkjmRRtXQfAWas9UUifUGcNJCAO0ZCNViMc6jkHbTnh7OfauZtGCHyKatdebHw5teIjQvKKU1QTxJ=k-no=w800-h600-c');">
+          <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLfXjtn8shKzixGebJ1R-UYFj0zZTHI-PLyorOjJw_wMCrV8bBpTaeTbkt2rZCcPElvxkjmRRtXQfAWas9UUifUGcNJCAO0ZCNViMc6jkHbTnh7OfauZtGCHyKatdebHw5teIjQvKKU1QTxJ=w800-h600-c" alt="Stepped Plinth Panel" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Stepped Plinth Panel</span>
           </div>
-          <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLfszPX7B_V2IoPalLpJsKNOErFsbgcslBLRycHyVWeU5W4DdxJyHq4SwovzKHOfMm4SbVOBR7TEOnf_TMlIxF6lH-kizlmYhh88ZG7Miz2R-JW7ilMrWZI8lxSTxLAA8iQzQA2s3vEmzfGH=k-no=w800-h600-c');">
+          <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLfszPX7B_V2IoPalLpJsKNOErFsbgcslBLRycHyVWeU5W4DdxJyHq4SwovzKHOfMm4SbVOBR7TEOnf_TMlIxF6lH-kizlmYhh88ZG7Miz2R-JW7ilMrWZI8lxSTxLAA8iQzQA2s3vEmzfGH=w800-h600-c" alt="Custom Access Gate" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Custom Access Gate</span>
           </div>
-          <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLeV_NOVNrZXRGimn2Fj0Qe039iVZJDMzy-R0DEYoEn-nUqI_gipvfJgAOoP9xVU3GQ5-ir7YqiXaMry_KbGeFx2eck8gGpLIhdhse0YXx_hrKwK_T1FbctLy0d8ASVwNDou8M-4kzlyoq7i=k-no=w800-h600-c');">
+          <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLeV_NOVNrZXRGimn2Fj0Qe039iVZJDMzy-R0DEYoEn-nUqI_gipvfJgAOoP9xVU3GQ5-ir7YqiXaMry_KbGeFx2eck8gGpLIhdhse0YXx_hrKwK_T1FbctLy0d8ASVwNDou8M-4kzlyoq7i=w800-h600-c" alt="Feature Privacy Fence" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Feature Privacy Fence</span>
           </div>
       </div>

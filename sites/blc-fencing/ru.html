@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
   <title>BLC FENCING | Заборы Colorbond® и модульные стены Joondalup WA — Смета онлайн</title>
   <meta name="description" content="BLC FENCING: надежные заборы Colorbond и модульные стены в Joondalup WA. Рейтинг 4.8★ (44 отзывов в Google). Связь напрямую с мастером (Команда BLC) по тел. +61 432 185 118.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -339,11 +340,21 @@
       transform: translateY(-4px);
       box-shadow: var(--shadow-md);
     }
-    .service-img {
-      height: 220px;
-      background-size: cover;
-      background-position: center;
+    .service-img-wrap {
       position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: #E2E8F0;
+    }
+    .service-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover .service-img {
+      transform: scale(1.03);
     }
     .service-badge {
       position: absolute;
@@ -356,6 +367,7 @@
       padding: 5px 12px;
       border-radius: 20px;
       backdrop-filter: blur(4px);
+      z-index: 2;
     }
     .service-body {
       padding: 24px;
@@ -400,27 +412,37 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }
-    .gallery-item {
+    .gallery-item-wrap {
       height: 240px;
       border-radius: var(--radius);
-      background-size: cover;
-      background-position: center;
       position: relative;
       box-shadow: var(--shadow-sm);
       overflow: hidden;
       border: 1px solid var(--border);
+      background: #E2E8F0;
+    }
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item-wrap:hover .gallery-img {
+      transform: scale(1.04);
     }
     .gallery-badge {
       position: absolute;
       bottom: 12px;
       left: 12px;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.75);
       color: #fff;
       font-size: 0.75rem;
       font-weight: 600;
       padding: 4px 10px;
       border-radius: 6px;
       backdrop-filter: blur(4px);
+      z-index: 2;
     }
 
     /* Colours Grid */
@@ -707,7 +729,8 @@
       <div class="services-grid">
         <!-- Service 1 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLeqnCVWj9NaG0NvhxcTgL8pTphcIsiWonfCH3d7VtptgXAvpdetkc3N7EgCFr4YS8xPlBYM-PPfzESecc4ptAN4uN6D6Nq5m76AIIR0HccEucFKIAWToG06F6dYPIz2gV6rkJ3Viw=k-no=w800-h550-c');">
+          <div class="service-img-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLeqnCVWj9NaG0NvhxcTgL8pTphcIsiWonfCH3d7VtptgXAvpdetkc3N7EgCFr4YS8xPlBYM-PPfzESecc4ptAN4uN6D6Nq5m76AIIR0HccEucFKIAWToG06F6dYPIz2gV6rkJ3Viw=w800-h550-c" alt="Лицензированный демонтаж асбестовых заборов" class="service-img" loading="lazy">
             <span class="service-badge">Безопасный снос</span>
           </div>
           <div class="service-body">
@@ -722,7 +745,8 @@
 
         <!-- Service 2 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLfhtEJaby0xvMOT-DgU2oWEJxt-Fxty1FcXf2r0egfekRAQSUKqbGOF99Rz7kkD6LSuo3qOD0dV68A4hO7O366mAHDOSWEFsZ5qbprotyRyF_yp9oOP3P-bR0YNWigV3YUZJwGM9A=k-no=w800-h550-c');">
+          <div class="service-img-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLfhtEJaby0xvMOT-DgU2oWEJxt-Fxty1FcXf2r0egfekRAQSUKqbGOF99Rz7kkD6LSuo3qOD0dV68A4hO7O366mAHDOSWEFsZ5qbprotyRyF_yp9oOP3P-bR0YNWigV3YUZJwGM9A=w800-h550-c" alt="Межевые заборы с раздельным счетом 50/50" class="service-img" loading="lazy">
             <span class="service-badge">Счет 50/50</span>
           </div>
           <div class="service-body">
@@ -737,7 +761,8 @@
 
         <!-- Service 3 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLeGbauKINv-wI4L8CyJ6zHxEf07wmCiQbsQXknSG4f_ws3-8Z9oq9ETnHRVttX-nmkky7M4Qw4uQUTFmIFIlRR6ixr7gGm4FI3IJNcN1CZ8L69U2X23FE6VHuWZkWu1xiEm9yk=k-no=w800-h550-c');">
+          <div class="service-img-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLeGbauKINv-wI4L8CyJ6zHxEf07wmCiQbsQXknSG4f_ws3-8Z9oq9ETnHRVttX-nmkky7M4Qw4uQUTFmIFIlRR6ixr7gGm4FI3IJNcN1CZ8L69U2X23FE6VHuWZkWu1xiEm9yk=w800-h550-c" alt="Ограждения для бассейнов по стандартам WA" class="service-img" loading="lazy">
             <span class="service-badge">Нормы WA</span>
           </div>
           <div class="service-body">
@@ -759,20 +784,24 @@
       <div class="section-header">
         <div class="section-kicker">РЕАЛЬНЫЕ ВЫПОЛНЕННЫЕ ОБЪЕКТЫ</div>
         <h2 class="section-title">Реальные работы BLC FENCING</h2>
-        <p class="section-sub">Все фотографии ниже — реальные заборы и ворота, установленные мастером (Команда BLC) и нашей бригадой.</p>
+        <p class="section-sub">Все фотографии ниже — реальные заборы и ворота, установленные мастером (Команда BLC) и нашей бригадой в Joondalup WA.</p>
       </div>
 
       <div class="gallery-grid">
-                  <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLfhtEJaby0xvMOT-DgU2oWEJxt-Fxty1FcXf2r0egfekRAQSUKqbGOF99Rz7kkD6LSuo3qOD0dV68A4hO7O366mAHDOSWEFsZ5qbprotyRyF_yp9oOP3P-bR0YNWigV3YUZJwGM9A=k-no=w800-h600-c');">
+                  <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLfhtEJaby0xvMOT-DgU2oWEJxt-Fxty1FcXf2r0egfekRAQSUKqbGOF99Rz7kkD6LSuo3qOD0dV68A4hO7O366mAHDOSWEFsZ5qbprotyRyF_yp9oOP3P-bR0YNWigV3YUZJwGM9A=w800-h600-c" alt="Забор Colorbond®" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Забор Colorbond®</span>
           </div>
-          <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLeGbauKINv-wI4L8CyJ6zHxEf07wmCiQbsQXknSG4f_ws3-8Z9oq9ETnHRVttX-nmkky7M4Qw4uQUTFmIFIlRR6ixr7gGm4FI3IJNcN1CZ8L69U2X23FE6VHuWZkWu1xiEm9yk=k-no=w800-h600-c');">
+          <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLeGbauKINv-wI4L8CyJ6zHxEf07wmCiQbsQXknSG4f_ws3-8Z9oq9ETnHRVttX-nmkky7M4Qw4uQUTFmIFIlRR6ixr7gGm4FI3IJNcN1CZ8L69U2X23FE6VHuWZkWu1xiEm9yk=w800-h600-c" alt="Ступенчатый цоколь" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Ступенчатый цоколь</span>
           </div>
-          <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLd05xj5_WCXGXRIYZZJIEurB7KvjLp0PdZwK-tJxEtIqp-DwbMOCLLacNjRALUiQqPFKxUNkiobXrvRo74Yif5LqcbxkH_BRhhFQIiV1Y6SkitX4Qk7LcGMdqfCWCFpYETYzwEbG6Lpa87f=k-no=w800-h600-c');">
+          <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLd05xj5_WCXGXRIYZZJIEurB7KvjLp0PdZwK-tJxEtIqp-DwbMOCLLacNjRALUiQqPFKxUNkiobXrvRo74Yif5LqcbxkH_BRhhFQIiV1Y6SkitX4Qk7LcGMdqfCWCFpYETYzwEbG6Lpa87f=w800-h600-c" alt="Калитка с замком" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Калитка с замком</span>
           </div>
-          <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLeoT9WqiL7iNSDEaEDpRKTsKhADsvHioOxIjGrSLkkr410YG9Wapc8VlhpR5YNaMXMQbhw5p1XTCe-c07VTZ-bdUusFypH0bl1wO6zTFfo8uGnIKkoDOmXdTk82cdq9OWf1D7ZA6Hu1awE=k-no=w800-h600-c');">
+          <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLeoT9WqiL7iNSDEaEDpRKTsKhADsvHioOxIjGrSLkkr410YG9Wapc8VlhpR5YNaMXMQbhw5p1XTCe-c07VTZ-bdUusFypH0bl1wO6zTFfo8uGnIKkoDOmXdTk82cdq9OWf1D7ZA6Hu1awE=w800-h600-c" alt="Приватный экран" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Приватный экран</span>
           </div>
       </div>

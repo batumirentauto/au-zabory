@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
   <title>Hanson Fencing &amp; Gate | 4.9★ Colorbond &amp; Modular Fencing Specialists Adelaide SA</title>
   <meta name="description" content="Hanson Fencing &amp; Gate: Adelaide SA&#x27;s trusted Colorbond and modular fencing contractors. Rated 4.9 Stars with 94 Google reviews. Speak directly with Peter on +61 411 338 232 for a free measure &amp; quote.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -339,11 +340,21 @@
       transform: translateY(-4px);
       box-shadow: var(--shadow-md);
     }
-    .service-img {
-      height: 220px;
-      background-size: cover;
-      background-position: center;
+    .service-img-wrap {
       position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: #E2E8F0;
+    }
+    .service-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover .service-img {
+      transform: scale(1.03);
     }
     .service-badge {
       position: absolute;
@@ -356,6 +367,7 @@
       padding: 5px 12px;
       border-radius: 20px;
       backdrop-filter: blur(4px);
+      z-index: 2;
     }
     .service-body {
       padding: 24px;
@@ -400,27 +412,37 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }
-    .gallery-item {
+    .gallery-item-wrap {
       height: 240px;
       border-radius: var(--radius);
-      background-size: cover;
-      background-position: center;
       position: relative;
       box-shadow: var(--shadow-sm);
       overflow: hidden;
       border: 1px solid var(--border);
+      background: #E2E8F0;
+    }
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item-wrap:hover .gallery-img {
+      transform: scale(1.04);
     }
     .gallery-badge {
       position: absolute;
       bottom: 12px;
       left: 12px;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.75);
       color: #fff;
       font-size: 0.75rem;
       font-weight: 600;
       padding: 4px 10px;
       border-radius: 6px;
       backdrop-filter: blur(4px);
+      z-index: 2;
     }
 
     /* Colours Grid */
@@ -707,7 +729,8 @@
       <div class="services-grid">
         <!-- Service 1 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLftEwi-43toFYTs6UK9f2Ius_OMMxPcnMdzkQpXYfpq46b80wODXybVttaoUiqTYFsbrwkV9Pv94kJ27kLe84wk1X0KpVVk5zyFNd3khb7fc3Vuyesul-mmxg2N2EVUiWjEPb7MKl8kfqDy=k-no=w800-h550-c');">
+          <div class="service-img-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLftEwi-43toFYTs6UK9f2Ius_OMMxPcnMdzkQpXYfpq46b80wODXybVttaoUiqTYFsbrwkV9Pv94kJ27kLe84wk1X0KpVVk5zyFNd3khb7fc3Vuyesul-mmxg2N2EVUiWjEPb7MKl8kfqDy=w800-h550-c" alt="Custom Side Gates & Slat Infill Panels" class="service-img" loading="lazy">
             <span class="service-badge">Custom Craft</span>
           </div>
           <div class="service-body">
@@ -722,7 +745,8 @@
 
         <!-- Service 2 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLfP776hr7cKWqtZnD49gFVdiTjcePwhK7Bp8dCzqNvxSEB89qm_nFYxyMpAbdo5aRGfw9q3BgrvnjgvR50BY0uWKDIhnHyUwcoUi2rH89n7d4rdMgx6ZLxrfZBfvm_pDcpjco0XpDMz0oEH=k-no=w800-h550-c');">
+          <div class="service-img-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLfP776hr7cKWqtZnD49gFVdiTjcePwhK7Bp8dCzqNvxSEB89qm_nFYxyMpAbdo5aRGfw9q3BgrvnjgvR50BY0uWKDIhnHyUwcoUi2rH89n7d4rdMgx6ZLxrfZBfvm_pDcpjco0XpDMz0oEH=w800-h550-c" alt="High Privacy Colorbond® Boundaries" class="service-img" loading="lazy">
             <span class="service-badge">Complete Privacy</span>
           </div>
           <div class="service-body">
@@ -737,7 +761,8 @@
 
         <!-- Service 3 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLd7VKUJ7nbC7H3xYFJLsenx5tU7EFmCO3SnEsU5qBmVqaQ6Xlj5zukdZYWQbYt8vEt8jBKvF02XLpblgNZadFjn1FnRdvZHVl2zECCYKDN33OIMm7eSwUx_FOwUuQZlIXC8k3rQ3LCVwyk=k-no=w800-h550-c');">
+          <div class="service-img-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLd7VKUJ7nbC7H3xYFJLsenx5tU7EFmCO3SnEsU5qBmVqaQ6Xlj5zukdZYWQbYt8vEt8jBKvF02XLpblgNZadFjn1FnRdvZHVl2zECCYKDN33OIMm7eSwUx_FOwUuQZlIXC8k3rQ3LCVwyk=w800-h550-c" alt="Sloped Ground Stepped Installation" class="service-img" loading="lazy">
             <span class="service-badge">Stepped Fit</span>
           </div>
           <div class="service-body">
@@ -759,20 +784,24 @@
       <div class="section-header">
         <div class="section-kicker">RECENT COMPLETED PROJECTS</div>
         <h2 class="section-title">Real Work Built by Hanson Fencing & Gate</h2>
-        <p class="section-sub">Every photo below is from an actual residential installation completed by Peter and our local installation crew.</p>
+        <p class="section-sub">Every photo below is an actual completed job by Peter and our team in Adelaide SA.</p>
       </div>
 
       <div class="gallery-grid">
-                  <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLfP776hr7cKWqtZnD49gFVdiTjcePwhK7Bp8dCzqNvxSEB89qm_nFYxyMpAbdo5aRGfw9q3BgrvnjgvR50BY0uWKDIhnHyUwcoUi2rH89n7d4rdMgx6ZLxrfZBfvm_pDcpjco0XpDMz0oEH=k-no=w800-h600-c');">
+                  <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLfP776hr7cKWqtZnD49gFVdiTjcePwhK7Bp8dCzqNvxSEB89qm_nFYxyMpAbdo5aRGfw9q3BgrvnjgvR50BY0uWKDIhnHyUwcoUi2rH89n7d4rdMgx6ZLxrfZBfvm_pDcpjco0XpDMz0oEH=w800-h600-c" alt="Colorbond® Boundary" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Colorbond® Boundary</span>
           </div>
-          <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLd7VKUJ7nbC7H3xYFJLsenx5tU7EFmCO3SnEsU5qBmVqaQ6Xlj5zukdZYWQbYt8vEt8jBKvF02XLpblgNZadFjn1FnRdvZHVl2zECCYKDN33OIMm7eSwUx_FOwUuQZlIXC8k3rQ3LCVwyk=k-no=w800-h600-c');">
+          <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLd7VKUJ7nbC7H3xYFJLsenx5tU7EFmCO3SnEsU5qBmVqaQ6Xlj5zukdZYWQbYt8vEt8jBKvF02XLpblgNZadFjn1FnRdvZHVl2zECCYKDN33OIMm7eSwUx_FOwUuQZlIXC8k3rQ3LCVwyk=w800-h600-c" alt="Stepped Plinth Panel" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Stepped Plinth Panel</span>
           </div>
-          <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLfVkVbeZ7BP2BV-IEQJg9JkpDw_v8e_L9ImUHfGa-rlem2p0WyG22hzqy7n9sJ0hjFIXvchZXOxfglr7rpSY23RrcwXVpoZQp6xhWARzde5M9icp4_Q2I42ujW1c9m30FwryLcILm8UcoZb=k-no=w800-h600-c');">
+          <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLfVkVbeZ7BP2BV-IEQJg9JkpDw_v8e_L9ImUHfGa-rlem2p0WyG22hzqy7n9sJ0hjFIXvchZXOxfglr7rpSY23RrcwXVpoZQp6xhWARzde5M9icp4_Q2I42ujW1c9m30FwryLcILm8UcoZb=w800-h600-c" alt="Custom Access Gate" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Custom Access Gate</span>
           </div>
-          <div class="gallery-item" style="background-image: url('https://lh3.googleusercontent.com/grass-cs/AABkmLeS51Vv---LI_mDRhtsRc3fYrKAzfVYO6EJaJeKMKlZaRSo4ZZH6pxyiHbGamkd2Q4Fk7uDAyaXjtEGhPHnPbJUn2CQ1781F6zAcDufBQ5XMgU78SOtgiCQy-0AWseNIIdipJbGKWcVk-0=k-no=w800-h600-c');">
+          <div class="gallery-item-wrap">
+            <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLeS51Vv---LI_mDRhtsRc3fYrKAzfVYO6EJaJeKMKlZaRSo4ZZH6pxyiHbGamkd2Q4Fk7uDAyaXjtEGhPHnPbJUn2CQ1781F6zAcDufBQ5XMgU78SOtgiCQy-0AWseNIIdipJbGKWcVk-0=w800-h600-c" alt="Feature Privacy Fence" class="gallery-img" loading="lazy">
             <span class="gallery-badge">Feature Privacy Fence</span>
           </div>
       </div>

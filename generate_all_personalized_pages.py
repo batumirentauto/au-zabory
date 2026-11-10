@@ -21,6 +21,12 @@ for c in real_data:
         if p not in all_real_photos:
             all_real_photos.append(p)
 
+def format_google_img(url, w=800, h=550):
+    if not url:
+        return ""
+    base = url.split('=')[0]
+    return f"{base}=w{w}-h{h}-c"
+
 def get_contractor_photos(c_real):
     photos = list(c_real.get('real_photos', []))
     # If fewer than 6, supplement from the pool of real fence photos
@@ -77,9 +83,9 @@ def build_site_html(item, c_real, profile, lang='en'):
         })
     
     photos = get_contractor_photos(c_real)
-    service_img_1 = photos[0] + "=w800-h550-c" if "=k-no" in photos[0] else photos[0]
-    service_img_2 = photos[1] + "=w800-h550-c" if "=k-no" in photos[1] else photos[1]
-    service_img_3 = photos[2] + "=w800-h550-c" if "=k-no" in photos[2] else photos[2]
+    service_img_1 = format_google_img(photos[0], 800, 550)
+    service_img_2 = format_google_img(photos[1], 800, 550)
+    service_img_3 = format_google_img(photos[2], 800, 550)
     
     gallery_photos = photos[1:5]
     
@@ -130,7 +136,7 @@ def build_site_html(item, c_real, profile, lang='en'):
         
         gallery_kicker = "RECENT COMPLETED PROJECTS"
         gallery_title = f"Real Work Built by {name}"
-        gallery_sub = f"Every photo below is from an actual residential installation completed by {lead_name} and our local installation crew."
+        gallery_sub = f"Every photo below is an actual completed job by {lead_name} and our team in {city}."
         
         colours_kicker = "COLORBOND® STEEL PALETTE"
         colours_title = "Australia's Most Loved Architectural Colours"
@@ -195,7 +201,7 @@ def build_site_html(item, c_real, profile, lang='en'):
         
         gallery_kicker = "РЕАЛЬНЫЕ ВЫПОЛНЕННЫЕ ОБЪЕКТЫ"
         gallery_title = f"Реальные работы {name}"
-        gallery_sub = f"Все фотографии ниже — реальные заборы и ворота, установленные мастером ({lead_name}) и нашей бригадой."
+        gallery_sub = f"Все фотографии ниже — реальные заборы и ворота, установленные мастером ({lead_name}) и нашей бригадой в {city}."
         
         colours_kicker = "ПАЛИТРА COLORBOND®"
         colours_title = "Самые популярные цвета австралийских заборов"
@@ -259,13 +265,14 @@ def build_site_html(item, c_real, profile, lang='en'):
         reviews_html.append(card)
     reviews_block = "\n".join(reviews_html)
 
-    # Build gallery cards HTML
+    # Build gallery cards HTML with <img> tags
     gallery_html = []
     badges = ["Colorbond® Boundary", "Stepped Plinth Panel", "Custom Access Gate", "Feature Privacy Fence"] if lang=='en' else ["Забор Colorbond®", "Ступенчатый цоколь", "Калитка с замком", "Приватный экран"]
     for i, gphoto in enumerate(gallery_photos):
-        gphoto_url = gphoto + "=w800-h600-c" if "=k-no" in gphoto else gphoto
+        gphoto_url = format_google_img(gphoto, 800, 600)
         b_label = badges[i % len(badges)]
-        g_card = f'''          <div class="gallery-item" style="background-image: url('{gphoto_url}');">
+        g_card = f'''          <div class="gallery-item-wrap">
+            <img src="{gphoto_url}" alt="{b_label}" class="gallery-img" loading="lazy">
             <span class="gallery-badge">{b_label}</span>
           </div>'''
         gallery_html.append(g_card)
@@ -287,6 +294,7 @@ def build_site_html(item, c_real, profile, lang='en'):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
   <title>{html.escape(page_title)}</title>
   <meta name="description" content="{html.escape(meta_desc)}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -623,11 +631,21 @@ def build_site_html(item, c_real, profile, lang='en'):
       transform: translateY(-4px);
       box-shadow: var(--shadow-md);
     }}
-    .service-img {{
-      height: 220px;
-      background-size: cover;
-      background-position: center;
+    .service-img-wrap {{
       position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: #E2E8F0;
+    }}
+    .service-img {{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }}
+    .service-card:hover .service-img {{
+      transform: scale(1.03);
     }}
     .service-badge {{
       position: absolute;
@@ -640,6 +658,7 @@ def build_site_html(item, c_real, profile, lang='en'):
       padding: 5px 12px;
       border-radius: 20px;
       backdrop-filter: blur(4px);
+      z-index: 2;
     }}
     .service-body {{
       padding: 24px;
@@ -684,27 +703,37 @@ def build_site_html(item, c_real, profile, lang='en'):
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }}
-    .gallery-item {{
+    .gallery-item-wrap {{
       height: 240px;
       border-radius: var(--radius);
-      background-size: cover;
-      background-position: center;
       position: relative;
       box-shadow: var(--shadow-sm);
       overflow: hidden;
       border: 1px solid var(--border);
+      background: #E2E8F0;
+    }}
+    .gallery-img {{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }}
+    .gallery-item-wrap:hover .gallery-img {{
+      transform: scale(1.04);
     }}
     .gallery-badge {{
       position: absolute;
       bottom: 12px;
       left: 12px;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.75);
       color: #fff;
       font-size: 0.75rem;
       font-weight: 600;
       padding: 4px 10px;
       border-radius: 6px;
       backdrop-filter: blur(4px);
+      z-index: 2;
     }}
 
     /* Colours Grid */
@@ -991,7 +1020,8 @@ def build_site_html(item, c_real, profile, lang='en'):
       <div class="services-grid">
         <!-- Service 1 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('{service_img_1}');">
+          <div class="service-img-wrap">
+            <img src="{service_img_1}" alt="{s1_title}" class="service-img" loading="lazy">
             <span class="service-badge">{s1_badge}</span>
           </div>
           <div class="service-body">
@@ -1006,7 +1036,8 @@ def build_site_html(item, c_real, profile, lang='en'):
 
         <!-- Service 2 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('{service_img_2}');">
+          <div class="service-img-wrap">
+            <img src="{service_img_2}" alt="{s2_title}" class="service-img" loading="lazy">
             <span class="service-badge">{s2_badge}</span>
           </div>
           <div class="service-body">
@@ -1021,7 +1052,8 @@ def build_site_html(item, c_real, profile, lang='en'):
 
         <!-- Service 3 -->
         <article class="service-card">
-          <div class="service-img" style="background-image: url('{service_img_3}');">
+          <div class="service-img-wrap">
+            <img src="{service_img_3}" alt="{s3_title}" class="service-img" loading="lazy">
             <span class="service-badge">{s3_badge}</span>
           </div>
           <div class="service-body">
@@ -1143,7 +1175,8 @@ def build_hub_html(contractors_summary):
         wa_link = c['wa_link']
         
         card = f'''        <div class="hub-card">
-          <div class="hub-card-thumb" style="background-image: url('{sample_img}');">
+          <div class="hub-card-thumb-wrap">
+            <img src="{sample_img}" alt="{name}" class="hub-card-thumb" loading="lazy">
             <span class="hub-rating-badge">★ {rating} ({reviews})</span>
             <span class="hub-installer-badge">{lead}</span>
           </div>
@@ -1177,6 +1210,7 @@ def build_hub_html(contractors_summary):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
   <title>Australian Fencing Contractors — Live Demo Hub (All 20 Personalized Sites)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1252,11 +1286,21 @@ def build_hub_html(contractors_summary):
       box-shadow: 0 10px 24px rgba(0,0,0,0.08);
       border-color: var(--accent);
     }}
-    .hub-card-thumb {{
-      height: 180px;
-      background-size: cover;
-      background-position: center;
+    .hub-card-thumb-wrap {{
       position: relative;
+      height: 180px;
+      background: #E2E8F0;
+      overflow: hidden;
+    }}
+    .hub-card-thumb {{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }}
+    .hub-card:hover .hub-card-thumb {{
+      transform: scale(1.03);
     }}
     .hub-rating-badge {{
       position: absolute;
@@ -1269,6 +1313,7 @@ def build_hub_html(contractors_summary):
       padding: 4px 10px;
       border-radius: 6px;
       backdrop-filter: blur(4px);
+      z-index: 2;
     }}
     .hub-installer-badge {{
       position: absolute;
@@ -1280,6 +1325,7 @@ def build_hub_html(contractors_summary):
       font-size: 0.78rem;
       padding: 4px 10px;
       border-radius: 6px;
+      z-index: 2;
     }}
     .hub-card-body {{
       padding: 22px;
@@ -1433,7 +1479,7 @@ for item in raw_contractors:
     wa_link = f"https://wa.me/{wa_phone}?text={urllib.parse.quote(wa_msg)}"
     
     photos = get_contractor_photos(c_real)
-    sample_img = photos[0] + "=w600-h400-c" if "=k-no" in photos[0] else photos[0]
+    sample_img = format_google_img(photos[0], 600, 400)
     
     hub_summary.append({
         'name': name,
@@ -1455,4 +1501,4 @@ hub_html = build_hub_html(hub_summary)
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(hub_html)
 
-print(f"Successfully generated all 20 personalized English sites, 20 Russian sites, and central Hub!")
+print("Successfully regenerated all 20 personalized English sites, 20 Russian sites, and central Hub with clean image URLs and <img> tags!")
