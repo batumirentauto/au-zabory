@@ -45,12 +45,20 @@ const server = http.createServer((req, res) => {
 
   let filePath = path.join(__dirname, reqPath);
 
-  // If path is a direct slug (e.g. /underwood-fencing-and-gates), check sites/<slug>/index.html
+  // If path is a direct slug (e.g. /underwood-fencing-and-gates or /underwood-fencing-and-gates/ru), check sites/<slug>/
   if (!fs.existsSync(filePath)) {
-    const slugWithoutSlash = reqPath.replace(/^\/+|\/+$/g, '');
-    const siteSlugPath = path.join(__dirname, 'sites', slugWithoutSlash, 'index.html');
-    if (fs.existsSync(siteSlugPath)) {
-      filePath = siteSlugPath;
+    const cleanPath = reqPath.replace(/^\/+|\/+$/g, '');
+    if (cleanPath.endsWith('/ru') || cleanPath.endsWith('/ru.html')) {
+      const slugPart = cleanPath.split('/')[0];
+      const siteRuPath = path.join(__dirname, 'sites', slugPart, 'ru.html');
+      if (fs.existsSync(siteRuPath)) {
+        filePath = siteRuPath;
+      }
+    } else {
+      const siteSlugPath = path.join(__dirname, 'sites', cleanPath, 'index.html');
+      if (fs.existsSync(siteSlugPath)) {
+        filePath = siteSlugPath;
+      }
     }
   }
 

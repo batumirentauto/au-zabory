@@ -19,43 +19,42 @@
       --radius: 14px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.5; padding: 40px 20px 80px; }
-    a { color: inherit; text-decoration: none; }
-    .container { max-width: 1300px; margin: 0 auto; }
-    
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; padding: 40px 20px; }
+    .container { max-width: 1320px; margin: 0 auto; }
+
     /* Header */
     .hub-header { text-align: center; margin-bottom: 40px; }
-    .hub-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); color: var(--primary); padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
-    .hub-title { font-family: 'Space Grotesk', sans-serif; font-size: 2.6rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
-    .hub-title span { color: var(--accent); }
-    .hub-desc { font-size: 1.1rem; color: var(--text-muted); max-width: 760px; margin: 0 auto; }
+    .hub-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.12); color: var(--primary); border: 1px solid rgba(16, 185, 129, 0.25); padding: 6px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+    .hub-title { font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .hub-title span { color: var(--primary); }
+    .hub-desc { color: var(--text-muted); font-size: 1.1rem; max-width: 780px; margin: 0 auto; }
 
-    /* KPI Bar */
-    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 36px; }
-    .kpi-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; text-align: center; }
-    .kpi-val { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
-    .kpi-val span { color: var(--primary); }
-    .kpi-label { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+    /* KPI Row */
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 34px; }
+    .kpi-card { background: var(--card-bg); border: 1px solid var(--card-border); padding: 20px; border-radius: var(--radius); text-align: center; }
+    .kpi-val { font-size: 2rem; font-weight: 800; color: #fff; font-family: 'Space Grotesk', sans-serif; margin-bottom: 4px; }
+    .kpi-label { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
 
-    /* Filter Controls */
-    .controls { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 20px; margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; }
+    /* Controls */
+    .controls { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 30px; }
     .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
-    .filter-btn { background: transparent; border: 1px solid var(--card-border); color: var(--text-muted); padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+    .filter-btn { background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-muted); padding: 8px 16px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; }
     .filter-btn.active, .filter-btn:hover { background: var(--primary); color: #0d1512; border-color: var(--primary); }
+    
     .search-box { position: relative; min-width: 280px; }
-    .search-input { width: 100%; background: #0d1512; border: 1px solid var(--card-border); border-radius: 8px; padding: 10px 14px; color: #fff; font-size: 0.9rem; outline: none; }
-    .search-input:focus { border-color: var(--primary); }
+    .search-input { width: 100%; background: var(--card-bg); border: 1px solid var(--card-border); color: #fff; padding: 10px 16px; border-radius: 8px; font-size: 0.9rem; font-family: inherit; }
+    .search-input:focus { outline: none; border-color: var(--primary); }
 
     /* Cards Grid */
-    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 24px; }
+    .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .biz-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, border-color 0.2s; }
     .biz-card:hover { transform: translateY(-3px); border-color: rgba(16, 185, 129, 0.4); }
+
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 10px; }
+    .biz-name { font-size: 1.25rem; font-weight: 700; color: #fff; }
+    .state-badge { background: rgba(255, 255, 255, 0.08); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 4px 8px; border-radius: 6px; }
     
-    .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; gap: 12px; }
-    .biz-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: #fff; }
-    .state-badge { background: rgba(242, 140, 40, 0.15); border: 1px solid rgba(242, 140, 40, 0.3); color: var(--accent); padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; flex-shrink: 0; }
-    
-    .status-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; font-weight: 700; margin-bottom: 14px; }
+    .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; margin-bottom: 14px; }
     .status-no-site { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
     .status-fb { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
     .status-aggr { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
@@ -69,14 +68,16 @@
 
     /* Actions */
     .card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: auto; }
-    .btn-action { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.85rem; font-weight: 700; padding: 10px 14px; border-radius: 8px; border: none; cursor: pointer; transition: all 0.2s; min-height: 42px; text-align: center; }
+    .btn-action { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.85rem; font-weight: 700; padding: 10px 12px; border-radius: 8px; border: none; cursor: pointer; transition: all 0.2s; min-height: 40px; text-align: center; }
     .btn-view { background: var(--primary); color: #0d1512; }
     .btn-view:hover { background: #059669; }
+    .btn-ru { background: rgba(59, 130, 246, 0.18); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.35); }
+    .btn-ru:hover { background: rgba(59, 130, 246, 0.3); color: #fff; }
     .btn-wa { background: #25D366; color: #fff; }
     .btn-wa:hover { background: #1ebc59; }
     .btn-copy { background: rgba(255, 255, 255, 0.08); color: #fff; border: 1px solid var(--card-border); }
     .btn-copy:hover { background: rgba(255, 255, 255, 0.15); }
-    .btn-map { background: rgba(255, 255, 255, 0.08); color: #fff; border: 1px solid var(--card-border); }
+    .btn-map { background: rgba(255, 255, 255, 0.08); color: #fff; border: 1px solid var(--card-border); grid-column: span 2; }
     .btn-map:hover { background: rgba(255, 255, 255, 0.15); }
 
     .toast { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: #0d1512; font-weight: 800; padding: 12px 24px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); transform: translateY(100px); opacity: 0; transition: all 0.3s; z-index: 1000; }
@@ -97,19 +98,19 @@
       <div class="hub-badge">Australia Outreach Machine</div>
       <h1 class="hub-title">Colorbond & Modular Fencing <span>Client Hub</span></h1>
       <p class="hub-desc">
-        All 20 verified Australian contractors with ready-to-sell demo landing pages, direct WhatsApp links, and tailored pitch templates.
+        All 20 verified Australian contractors with ready-to-sell demo landing pages (English + Russian versions), direct WhatsApp links, and tailored pitch templates.
       </p>
     </header>
 
-    <!-- KPI Summary -->
+    <!-- KPI Highlights -->
     <section class="kpi-grid">
       <div class="kpi-card">
         <div class="kpi-val">20</div>
-        <div class="kpi-label">Ready Websites Generated</div>
+        <div class="kpi-label">Ready Demo Websites</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-val">19 <span>(95%)</span></div>
-        <div class="kpi-label">Direct WhatsApp Mobiles</div>
+        <div class="kpi-val">95%</div>
+        <div class="kpi-label">Mobile WhatsApp Line</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-val">4.8 – 5.0★</div>
@@ -165,7 +166,8 @@
         </div>
 
         <div class="card-actions">
-          <a href="sites/underwood-fencing-and-gates/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/underwood-fencing-and-gates/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/underwood-fencing-and-gates/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61418446509?text=G%27day%20Underwood%20Fencing%20and%20Gates%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2880%20Google%20reviews%29%20in%20Sydney%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/underwood-fencing-and-gates/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Underwood Fencing and Gates team,
 
@@ -209,7 +211,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/affordable-fencing-company/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/affordable-fencing-company/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/affordable-fencing-company/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61417226520?text=G%27day%20Affordable%20Fencing%20Company%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%28142%20Google%20reviews%29%20in%20Sydney%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/affordable-fencing-company/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Affordable Fencing Company team,
 
@@ -253,7 +256,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/anthonys-fencing/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/anthonys-fencing/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/anthonys-fencing/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61435256220?text=G%27day%20Anthony%27s%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%2841%20Google%20reviews%29%20in%20Sydney%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/anthonys-fencing/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Anthony&#x27;s Fencing team,
 
@@ -297,7 +301,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/highline-fencing/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/highline-fencing/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/highline-fencing/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61403144520?text=G%27day%20Highline%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2839%20Google%20reviews%29%20in%20Parramatta%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/highline-fencing/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Highline Fencing team,
 
@@ -341,7 +346,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/diy-dale/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/diy-dale/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/diy-dale/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61488998399?text=G%27day%20DIY%20Dale%20team%2C%0A%0ASaw%20your%20incredible%204.8%E2%98%85%20rating%20%2875%20Google%20reviews%29%20in%20Campbelltown%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/diy-dale/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day DIY Dale team,
 
@@ -385,7 +391,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/straight-arrow-projects/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/straight-arrow-projects/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/straight-arrow-projects/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61490471559?text=G%27day%20STRAIGHT%20ARROW%20PROJECTS%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2836%20Google%20reviews%29%20in%20Campbelltown%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/straight-arrow-projects/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day STRAIGHT ARROW PROJECTS team,
 
@@ -429,7 +436,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/mighty-fencing/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/mighty-fencing/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/mighty-fencing/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61401044638?text=G%27day%20Mighty%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2857%20Google%20reviews%29%20in%20Wollongong%20NSW%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/mighty-fencing/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Mighty Fencing team,
 
@@ -473,7 +481,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/tj-fencing/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/tj-fencing/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/tj-fencing/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61407351849?text=G%27day%20TJ%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%28149%20Google%20reviews%29%20in%20Melbourne%20VIC%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/tj-fencing/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day TJ Fencing team,
 
@@ -517,7 +526,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/armstrong-fencing-and-landscaping/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/armstrong-fencing-and-landscaping/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/armstrong-fencing-and-landscaping/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61422700055?text=G%27day%20Armstrong%20Fencing%20and%20Landscaping%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2853%20Google%20reviews%29%20in%20Geelong%20VIC%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/armstrong-fencing-and-landscaping/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Armstrong Fencing and Landscaping team,
 
@@ -561,7 +571,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/jp-fencing-more-pty-ltd/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/jp-fencing-more-pty-ltd/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/jp-fencing-more-pty-ltd/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61415585594?text=G%27day%20JP%20Fencing%20%26%20More%20Pty%20Ltd%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%2874%20Google%20reviews%29%20in%20Brisbane%20QLD%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/jp-fencing-more-pty-ltd/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day JP Fencing &amp; More Pty Ltd team,
 
@@ -605,7 +616,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/jd-fence-masters/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/jd-fence-masters/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/jd-fence-masters/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61469077580?text=G%27day%20JD%20Fence%20Masters%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%28156%20Google%20reviews%29%20in%20Brisbane%20QLD%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/jd-fence-masters/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day JD Fence Masters team,
 
@@ -649,7 +661,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/bayside-fencing-gates/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/bayside-fencing-gates/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/bayside-fencing-gates/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61401279273?text=G%27day%20Bayside%20Fencing%20%26%20Gates%20team%2C%0A%0ASaw%20your%20incredible%204.8%E2%98%85%20rating%20%2823%20Google%20reviews%29%20in%20Brisbane%20QLD%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/bayside-fencing-gates/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Bayside Fencing &amp; Gates team,
 
@@ -693,7 +706,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/hernsley-fencing-services/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/hernsley-fencing-services/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/hernsley-fencing-services/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61404873373?text=G%27day%20Hernsley%20Fencing%20Services%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%2880%20Google%20reviews%29%20in%20Brisbane%20QLD%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/hernsley-fencing-services/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Hernsley Fencing Services team,
 
@@ -737,7 +751,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/sentry-fencing/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/sentry-fencing/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/sentry-fencing/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61433791961?text=G%27day%20Sentry%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2838%20Google%20reviews%29%20in%20Joondalup%20WA%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/sentry-fencing/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Sentry Fencing team,
 
@@ -781,7 +796,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/blc-fencing/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/blc-fencing/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/blc-fencing/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61432185118?text=G%27day%20BLC%20FENCING%20team%2C%0A%0ASaw%20your%20incredible%204.8%E2%98%85%20rating%20%2844%20Google%20reviews%29%20in%20Joondalup%20WA%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/blc-fencing/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day BLC FENCING team,
 
@@ -825,7 +841,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/fenced-right-wa/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/fenced-right-wa/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/fenced-right-wa/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61430022620?text=G%27day%20Fenced%20Right%20WA%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2829%20Google%20reviews%29%20in%20Mandurah%20WA%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/fenced-right-wa/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Fenced Right WA team,
 
@@ -869,7 +886,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/fencing-rockingham/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/fencing-rockingham/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/fencing-rockingham/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <span class="btn-action" style="background:#334155; color:#94a3b8; cursor:not-allowed;">Landline</span>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Fencing Rockingham team,
 
@@ -913,7 +931,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/hanson-fencing-gate/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/hanson-fencing-gate/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/hanson-fencing-gate/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61411338232?text=G%27day%20Hanson%20Fencing%20%26%20Gate%20team%2C%0A%0ASaw%20your%20incredible%204.9%E2%98%85%20rating%20%2894%20Google%20reviews%29%20in%20Adelaide%20SA%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/hanson-fencing-gate/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Hanson Fencing &amp; Gate team,
 
@@ -957,7 +976,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/valente-fencing/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/valente-fencing/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/valente-fencing/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61422309557?text=G%27day%20Valente%20Fencing%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2842%20Google%20reviews%29%20in%20Adelaide%20SA%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/valente-fencing/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Valente Fencing team,
 
@@ -1001,7 +1021,8 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
         </div>
 
         <div class="card-actions">
-          <a href="sites/guardian-fencing/index.html" target="_blank" class="btn-action btn-view">🌐 Preview Site</a>
+          <a href="sites/guardian-fencing/index.html" target="_blank" class="btn-action btn-view" title="Open Australian English site">🇬🇧 English</a>
+          <a href="sites/guardian-fencing/ru.html" target="_blank" class="btn-action btn-ru" title="Открыть русскую версию">🇷🇺 Русская версия</a>
           <a href="https://wa.me/61405840576?text=G%27day%20Guardian%20fencing%20team%2C%0A%0ASaw%20your%20incredible%205.0%E2%98%85%20rating%20%2827%20Google%20reviews%29%20in%20Canberra%20ACT%20%E2%80%94%20top%20quality%20reputation%21%0A%0ANoticed%20you%20don%27t%20have%20a%20standalone%20modern%20website%20listed%2C%20so%20you%27re%20likely%20losing%20direct%20Colorbond%20%26%20modular%20fencing%20jobs%20to%20competitors%20running%20Google%20ads.%0A%0AWe%20built%20a%20fast%2C%20mobile-ready%20website%20concept%20for%20your%20brand%20with%20your%20real%20reviews%20and%20services%3A%0A%F0%9F%91%89%20https%3A//zonus.co/fencing/sites/guardian-fencing/%0A%0AZero%20effort%20needed%20on%20your%20side.%20If%20you%20like%20it%2C%20we%20can%20connect%20it%20to%20your%20domain%20in%2024%20hours.%0A%0AWorth%20a%20quick%2060-second%20look%3F%0A%0ACheers%21" target="_blank" class="btn-action btn-wa">💬 WhatsApp</a>
           <button type="button" class="btn-action btn-copy" data-pitch="G&#x27;day Guardian fencing team,
 
@@ -1057,10 +1078,10 @@ Cheers!" onclick="copyPitch(this.getAttribute('data-pitch'))">📋 Copy Pitch</b
       const searchVal = searchInput.value.toLowerCase().trim();
 
       cards.forEach(card => {
-        const matchState = (activeState === 'all' || card.dataset.state === activeState);
-        const matchSearch = (!searchVal || card.dataset.name.includes(searchVal));
-
-        if (matchState && matchSearch) {
+        const stateMatch = activeState === 'all' || card.dataset.state === activeState;
+        const nameMatch = card.dataset.name.includes(searchVal);
+        
+        if (stateMatch && nameMatch) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
