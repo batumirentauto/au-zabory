@@ -623,7 +623,7 @@ def generate_landing_html(item, slug, lang='en'):
         <div class="services-grid">
           
           <article class="service-card">
-            <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=700&q=80');">
+            <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1595846519845-68e298c2edd8?auto=format&fit=crop&w=700&q=80');">
               <span class="service-badge">{c1_badge}</span>
             </div>
             <div class="service-body">
@@ -639,7 +639,7 @@ def generate_landing_html(item, slug, lang='en'):
           </article>
 
           <article class="service-card">
-            <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=700&q=80');">
+            <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80');">
               <span class="service-badge">{c2_badge}</span>
             </div>
             <div class="service-body">
@@ -655,7 +655,7 @@ def generate_landing_html(item, slug, lang='en'):
           </article>
 
           <article class="service-card">
-            <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=700&q=80');">
+            <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=700&q=80');">
               <span class="service-badge">{c3_badge}</span>
             </div>
             <div class="service-body">
